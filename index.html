@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cumbre de Comunidades 2027 • Paquetes de alianza</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+<style>
+:root{--bg:#fff4f1;--card:#fff;--ink:#3a3a3a;--soft:#555;--purple:#7b52d6;--pink:#f5509a;--orange:#f26a10;--nav:rgba(255,244,241,.92);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1030;--card:#2a1a48;--ink:#f6efff;--soft:#d3c3ef;--purple:#b497ff;--nav:rgba(28,16,48,.92);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1c1030;--card:#2a1a48;--ink:#f6efff;--soft:#d3c3ef;--purple:#b497ff;--nav:rgba(28,16,48,.92);color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,sans-serif;overflow:hidden}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:30;background:var(--nav);backdrop-filter:blur(8px);display:flex;align-items:center;gap:16px;padding:10px 20px;box-shadow:0 2px 12px rgba(80,30,150,.1)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--nav);z-index:31}
+.brand{font-family:cursive;font-size:1.5rem;color:var(--purple);white-space:nowrap;cursor:pointer}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav::-webkit-scrollbar{display:none}
+nav a{padding:7px 14px;border-radius:99px;font-size:.88rem;font-weight:600;color:var(--soft);text-decoration:none;white-space:nowrap;cursor:pointer}
+nav a.on{background:var(--purple);color:#fff}
+.dots{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:20}
+.dots i{width:9px;height:9px;border-radius:9px;background:var(--soft);opacity:.3;cursor:pointer;transition:all .3s}
+.dots i.on{width:26px;background:var(--pink);opacity:1}
+.arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:25;width:52px;height:52px;border-radius:50%;border:0;background:var(--purple);color:#fff;font-size:1.6rem;cursor:pointer;box-shadow:0 6px 18px rgba(80,30,150,.3)}
+.arrow:disabled{opacity:.25;cursor:default}
+#prev{left:14px}#next{right:14px}
+.slide{position:absolute;inset:0;padding:96px clamp(70px,9vw,120px) 64px;display:none;flex-direction:column;justify-content:center;gap:18px;overflow-y:auto;animation:in .4s}
+.slide.on{display:flex}
+@keyframes in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.slide{animation:none}}
+@media (max-width:600px){.arrow{top:auto;bottom:calc(8px + env(safe-area-inset-bottom,0px));transform:none;width:44px;height:44px}.slide{padding:84px 20px 80px}}
+h1{font-size:clamp(2.6rem,9vw,6rem);line-height:1;font-weight:700}
+h2{font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;font-weight:700}
+h2 em{font-style:normal;color:var(--pink)}
+p,li{font-size:clamp(1rem,1.9vw,1.25rem);line-height:1.55;color:var(--soft)}
+.tag{font-family:cursive;color:var(--purple);font-size:1.5rem}
+.hero{align-items:center;text-align:center}
+.date{font-size:clamp(1.2rem,3vw,2rem);font-weight:700}
+.stamp{background:var(--purple);color:#fff;padding:6px 26px;font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:700;transform:rotate(-2deg)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border-radius:20px;padding:20px;box-shadow:0 4px 18px rgba(80,30,150,.12)}
+.card b{display:block;color:var(--ink);margin-bottom:6px}
+.card p,.card li{font-size:.95rem}
+.big{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:700;color:var(--ink);line-height:1}
+.big small{display:block;font-size:.9rem;color:var(--orange);font-weight:600;margin-top:6px}
+.num{font-size:2rem;font-weight:700;color:var(--purple)}
+.num small{display:block;font-size:.85rem;color:var(--soft);font-weight:600}
+.pill{display:inline-block;background:var(--pink);color:#fff;font-weight:700;padding:6px 18px;border-radius:12px;margin-bottom:12px}
+.tier{border-top:6px solid var(--pink)}
+.tier:nth-child(2){border-color:var(--purple)}.tier:nth-child(3){border-color:var(--orange)}
+ul{padding-left:1.2em;display:grid;gap:6px}
+.bars div{display:grid;grid-template-columns:120px 1fr 52px;align-items:center;gap:10px;margin:5px 0;font-size:.9rem;color:var(--soft)}
+.bars .t{height:12px;border-radius:8px;background:linear-gradient(90deg,var(--pink),var(--purple));width:0;transition:width .8s}
+.note{background:var(--purple);color:#fff;padding:14px 18px;border-radius:16px;font-size:.88rem;line-height:1.5}
+.note a{color:#fff}
+.logos{display:flex;flex-wrap:wrap;gap:12px}
+.logos span{background:var(--card);padding:12px 22px;border-radius:14px;font-weight:700}
+a{color:var(--purple);font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <span class="brand" data-go="0">#TechnoLatinas</span>
+  <nav id="menu">
+    <a data-go="0">Inicio</a><a data-go="1">Quiénes somos</a><a data-go="2">La Cumbre</a><a data-go="3">Audiencia</a><a data-go="5">Paquetes</a><a data-go="6">Sede</a><a data-go="7">Beneficios</a><a data-go="9">Contacto</a>
+  </nav>
+</header>
+
+<section class="slide hero">
+  <span class="date">Marzo</span>
+  <h1>Cumbre de<br>Comunidades</h1>
+  <span class="stamp">2027</span>
+  <span class="tag">#TechnoLatinas</span>
+  <p>Paquetes de alianza y patrocinio</p>
+</section>
+
+<section class="slide">
+  <h2>¿Quiénes <em>somos?</em></h2>
+  <p>Una comunidad que visibiliza y amplifica las voces de mujeres latinas en tecnología, creando oportunidades de participación y liderazgo.</p>
+  <div class="big">+30,000<small>impactos digitales</small></div>
+  <div class="grid">
+    <div class="card"><b style="color:var(--orange)">Alcance público</b><div class="num" data-n="12700">0<small>X</small></div><div class="num" data-n="9300">0<small>LinkedIn</small></div></div>
+    <div class="card"><b style="color:var(--orange)">Red privada</b><div class="num" data-n="917">0<small>miembros en Telegram</small></div><div class="num" data-n="442">0<small>miembros en Slack</small></div></div>
+    <div class="card"><b style="color:var(--orange)">Presencia multicanal</b><div class="num" data-n="11965">0<small>seguidores</small></div><p>Instagram, Facebook, YouTube, Twitch</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>¿Qué es la <em>Cumbre de Comunidades?</em></h2>
+  <p>Un encuentro que conecta a mujeres en tecnología desde la experiencia y la comunidad.</p>
+  <ul>
+    <li>Reúne a mujeres que forman parte de comunidades tecnológicas.</li>
+    <li>Charlas, talleres y espacios de networking con enfoque técnico.</li>
+    <li>Un espacio para compartir conocimiento real y crear conexiones duraderas.</li>
+  </ul>
+  <div class="card"><b>Verticales</b><p>Tecnologías futuras · Seguridad · Resiliencia</p></div>
+  <p><b style="color:var(--purple)">No es solo un evento, es un punto de encuentro entre mujeres que inspiran a otras mujeres.</b></p>
+</section>
+
+<section class="slide">
+  <h2>Audiencia <em>esperada</em></h2>
+  <div class="big">100<small>asistentes</small></div>
+  <p>Perfil: mujeres en tecnología, estudiantes STEM, profesionales mid-level y líderes de comunidad.</p>
+  <div class="card"><b>Talento TechnoLatinas</b><div class="bars" id="talento"></div></div>
+</section>
+
+<section class="slide">
+  <h2>TechnoLatinas <em>alrededor del mundo</em></h2>
+  <p>Presencia internacional que refleja la diversidad de nuestra comunidad.</p>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="card"><b>Top países</b><div class="bars" id="paises"></div></div>
+    <div class="card"><b>Edades</b><div class="bars" id="edades"></div>
+      <p style="margin-top:10px"><b style="display:inline">Top ciudades:</b> Ciudad de México, Bogotá, Lima, Puebla, La Paz, Buenos Aires.</p></div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Paquetes de <em>alianza</em></h2><p>Elige cómo quieres ser parte de la Cumbre 2027.</p>
+  <div class="grid">
+    <div class="card tier"><span class="pill">Aliado de sedes</span><p>Aportación en especie</p><b>Tu aportación</b><ul><li>Instalaciones y apoyo logístico</li><li>Préstamo de mobiliario</li><li>Préstamo de equipo de audio</li></ul><b>Recibes</b><ul><li>Trajinera con el nombre de la empresa</li><li>Beneficios para todos los aliados</li></ul></div>
+    <div class="card tier"><span class="pill">Aliado de experiencia</span><p>Aportación en especie</p><b>Tu aportación (elige una o varias)</b><ul><li>Coffee break</li><li>Lunch boxes</li><li>Snacks</li><li>Swag o kits de bienvenida</li></ul><b>Recibes</b><ul><li>Beneficios para todos los aliados</li></ul></div>
+    <div class="card tier"><span class="pill">Aliado de impulso</span><p>Aportación monetaria</p><b>Tu aportación</b><ul><li>Apoyo económico para la operación</li><li>Donación directa en <a href="https://technolatinas.org/donar" target="_blank" rel="noopener">technolatinas.org/donar</a></li></ul><b>Recibes</b><ul><li>Beneficios para todos los aliados</li></ul></div>
+  </div>
+  <div class="note">Somos una organización sin fines de lucro 501(c)(3) en Estados Unidos. Si la organización aliada tiene la estructura para hacer donativos internacionales, podemos recibir recursos directamente en nuestra cuenta bancaria en EE.UU. y emitir el recibo deducible correspondiente.</div>
+</section>
+
+<section class="slide">
+  <h2>Requerimientos para <em>sede aliada</em></h2>
+  <span class="pill" style="width:fit-content">Paquete Aliado de sedes · primer día de la Cumbre</span>
+  <div class="grid">
+    <div class="card">Capacidad para 100 personas</div><div class="card">Sillas y mesas tipo conferencia</div>
+    <div class="card">Área para registro</div><div class="card">Proyector y pantalla</div>
+    <div class="card">Sistema de audio (micrófonos)</div><div class="card">Conexión WiFi estable</div>
+    <div class="card">Espacio para networking/brunch</div><div class="card">Acceso a baños</div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Beneficios <em>para todos los aliados</em></h2>
+  <ul>
+    <li>Presencia de marca en redes sociales antes, durante y después del evento.</li>
+    <li>Logo en el material digital del evento.</li>
+    <li>Menciones durante el evento.</li>
+    <li>Tráfico y visibilidad ante una comunidad tech femenina especializada.</li>
+    <li>2 accesos para que tu equipo sea parte de la experiencia y conecte con la comunidad.</li>
+  </ul>
+  <p><b style="color:var(--purple)">Ser parte de esta experiencia es invertir en impacto, conexión y futuro.</b></p>
+</section>
+
+<section class="slide">
+  <h2>Han colaborado <em>con nosotras</em></h2>
+  <div class="logos"><span>Zillow</span><span>MasterClass</span><span>butter</span><span>Flink</span><span>simpat tech</span><span>Universidad Tecmilenio</span><span>Cisco</span><span>PayPal</span></div>
+</section>
+
+<section class="slide hero">
+  <h2>Construyamos juntos <em>esta experiencia</em></h2>
+  <span class="tag">#TechnoLatinas</span>
+  <p><a href="mailto:partners@technolatinas.org">partners@technolatinas.org</a></p>
+  <p><a href="https://technolatinas.org" target="_blank" rel="noopener">technolatinas.org</a> · <a href="https://technolatinas.org/donar" target="_blank" rel="noopener">Donar</a></p>
+  <p style="font-size:.85rem">Última actualización: noviembre de 2026</p>
+</section>
+
+<button class="arrow" id="prev" aria-label="Anterior">‹</button>
+<button class="arrow" id="next" aria-label="Siguiente">›</button>
+<div class="dots" id="dots"></div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),i=0,dots=document.getElementById('dots'),links=[].slice.call(document.querySelectorAll('[data-go]'));
+  slides.forEach(function(_,k){var d=document.createElement('i');d.onclick=function(){show(k)};dots.appendChild(d)});
+  function bars(id,rows,max){var el=document.getElementById(id);rows.forEach(function(r){var d=document.createElement('div');d.innerHTML='<span>'+r[0]+'</span><span class="t" data-w="'+(r[1]/max*100)+'"></span><span>'+r[1]+'%</span>';el.appendChild(d)})}
+  bars('talento',[['Estudiantes',25],['Software dev',20],['Manager / Lead',14.3],['Data',10],['Diseño UI/UX',8.6],['Marketing',7.1],['Consultoría',5.7]],25);
+  bars('paises',[['México',52],['Colombia',14],['Perú',9],['Argentina',8],['Alemania',5],['Ecuador',3],['Chile',2]],52);
+  bars('edades',[['25–34 años',64.8],['35–44 años',19.4],['18–24 años',14.9]],64.8);
+  function count(el){var n=+el.dataset.n,t=0,node=el.firstChild;var id=setInterval(function(){t+=n/30;if(t>=n){t=n;clearInterval(id)}node.nodeValue=Math.round(t).toLocaleString('es-MX')},25)}
+  function show(n,push){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i)});
+    var s=slides[i];
+    [].forEach.call(s.querySelectorAll('[data-n]'),count);
+    [].forEach.call(s.querySelectorAll('.t'),function(b){b.style.width='0';setTimeout(function(){b.style.width=b.dataset.w+'%'},60)});
+    [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)});
+    var cur=null;links.forEach(function(a){a.classList.remove('on');if(a.tagName==='A'&&+a.dataset.go<=i)cur=a});
+    if(cur){cur.classList.add('on');cur.scrollIntoView({block:'nearest',inline:'center'})}
+    document.getElementById('prev').disabled=i===0;
+    document.getElementById('next').disabled=i===slides.length-1;
+    if(push!==false){try{history.replaceState(null,'','#s'+(i+1))}catch(e){location.hash='s'+(i+1)}}
+  }
+  links.forEach(function(a){a.onclick=function(){show(+a.dataset.go)}});
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')show(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')show(i-1)});
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>60)show(i+(d<0?1:-1));x0=null});
+  function fromHash(){var m=/^#s(\d+)$/.exec(location.hash);show(m?+m[1]-1:0,false)}
+  window.addEventListener('hashchange',fromHash);
+  fromHash();
+})();
+</script>
+</body>
+</html>
