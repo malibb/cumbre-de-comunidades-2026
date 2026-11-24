@@ -410,19 +410,20 @@ ul.tl-lista {
 .tl-estallido {
   position: relative;
   display: inline-grid; place-items: center;
-  width: 8.8rem; aspect-ratio: 1;
+  width: 9.75rem; aspect-ratio: 1;
   transform: rotate(var(--giro-estallido));
   flex-shrink: 0;
 }
 .tl-estallido svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .tl-estallido span {
   position: relative;
-  font: 800 1.35rem/0.95 var(--font-display);
+  font: 800 1.2rem/1.12 var(--font-display);
   font-stretch: 78%;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   text-align: center;
   color: var(--tinta);
-  padding: 0 1em;
+  max-width: 64%;
+  padding: 0 0.2em 0.15em 0;
 }
 .tl-circulo {
   position: absolute; z-index: 0; pointer-events: none;
@@ -525,12 +526,12 @@ ul.tl-lista {
       <button type="button" class="tl-boton" data-go="5">Ver paquetes de alianza</button>
       <a class="tl-boton tl-boton--rosa" href="cotizadorpatrocionios/">Ir al cotizador interactivo</a>
     </div>
-    <div class="tl-estallido" style="margin-top:4px" aria-hidden="true">
+    <div class="tl-estallido" style="margin-top:12px" aria-hidden="true">
       <svg viewBox="-112 -112 236 236" fill="none">
         <polygon points="100.0,0.0 77.3,20.7 86.6,50.0 56.6,56.6 50.0,86.6 20.7,77.3 0.0,100.0 -20.7,77.3 -50.0,86.6 -56.6,56.6 -86.6,50.0 -77.3,20.7 -100.0,0.0 -77.3,-20.7 -86.6,-50.0 -56.6,-56.6 -50.0,-86.6 -20.7,-77.3 -0.0,-100.0 20.7,-77.3 50.0,-86.6 56.6,-56.6 86.6,-50.0 77.3,-20.7" transform="translate(8 9)" fill="#130030" stroke="#130030" stroke-width="9" stroke-linejoin="round"/>
         <polygon points="100.0,0.0 77.3,20.7 86.6,50.0 56.6,56.6 50.0,86.6 20.7,77.3 0.0,100.0 -20.7,77.3 -50.0,86.6 -56.6,56.6 -86.6,50.0 -77.3,20.7 -100.0,0.0 -77.3,-20.7 -86.6,-50.0 -56.6,-56.6 -50.0,-86.6 -20.7,-77.3 -0.0,-100.0 20.7,-77.3 50.0,-86.6 56.6,-56.6 86.6,-50.0 77.3,-20.7" fill="#D9FF3D" stroke="#130030" stroke-width="5" stroke-linejoin="round"/>
       </svg>
-      <span>¡Súmate en 2027!</span>
+      <span>¡Súmate<br>en 2027!</span>
     </div>
   </div>
 </section>
