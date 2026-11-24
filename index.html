@@ -3,174 +3,773 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cumbre de Comunidades 2027 • Paquetes de alianza</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+<title>Cumbre de Comunidades 2027 · TechnoLatinas</title>
+<meta name="description" content="Paquetes de alianza y patrocinio para la Cumbre de Comunidades 2027 de TechnoLatinas.">
+<meta name="theme-color" content="#8080FF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Fraunces:ital,opsz,wght,SOFT,WONK@1,9..144,100..900,0..100,0..1&family=Instrument+Sans:wght@400..700&display=swap">
 <style>
-:root{--bg:#fff4f1;--card:#fff;--ink:#3a3a3a;--soft:#555;--purple:#7b52d6;--pink:#f5509a;--orange:#f26a10;--nav:rgba(255,244,241,.92);
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1030;--card:#2a1a48;--ink:#f6efff;--soft:#d3c3ef;--purple:#b497ff;--nav:rgba(28,16,48,.92);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#1c1030;--card:#2a1a48;--ink:#f6efff;--soft:#d3c3ef;--purple:#b497ff;--nav:rgba(28,16,48,.92);color-scheme:dark}
-*{box-sizing:border-box;margin:0}
-html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,sans-serif;overflow:hidden}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:30;background:var(--nav);backdrop-filter:blur(8px);display:flex;align-items:center;gap:16px;padding:10px 20px;box-shadow:0 2px 12px rgba(80,30,150,.1)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--nav);z-index:31}
-.brand{font-family:cursive;font-size:1.5rem;color:var(--purple);white-space:nowrap;cursor:pointer}
-nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
-nav::-webkit-scrollbar{display:none}
-nav a{padding:7px 14px;border-radius:99px;font-size:.88rem;font-weight:600;color:var(--soft);text-decoration:none;white-space:nowrap;cursor:pointer}
-nav a.on{background:var(--purple);color:#fff}
-.dots{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom,0px));left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:20}
-.dots i{width:9px;height:9px;border-radius:9px;background:var(--soft);opacity:.3;cursor:pointer;transition:all .3s}
-.dots i.on{width:26px;background:var(--pink);opacity:1}
-.arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:25;width:52px;height:52px;border-radius:50%;border:0;background:var(--purple);color:#fff;font-size:1.6rem;cursor:pointer;box-shadow:0 6px 18px rgba(80,30,150,.3)}
-.arrow:disabled{opacity:.25;cursor:default}
-#prev{left:14px}#next{right:14px}
-.slide{position:absolute;inset:0;padding:96px clamp(70px,9vw,120px) 64px;display:none;flex-direction:column;justify-content:center;gap:18px;overflow-y:auto;animation:in .4s}
-.slide.on{display:flex}
-@keyframes in{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.slide{animation:none}}
-@media (max-width:600px){.arrow{top:auto;bottom:calc(8px + env(safe-area-inset-bottom,0px));transform:none;width:44px;height:44px}.slide{padding:84px 20px 80px}}
-h1{font-size:clamp(2.6rem,9vw,6rem);line-height:1;font-weight:700}
-h2{font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;font-weight:700}
-h2 em{font-style:normal;color:var(--pink)}
-p,li{font-size:clamp(1rem,1.9vw,1.25rem);line-height:1.55;color:var(--soft)}
-.tag{font-family:cursive;color:var(--purple);font-size:1.5rem}
-.hero{align-items:center;text-align:center}
-.date{font-size:clamp(1.2rem,3vw,2rem);font-weight:700}
-.stamp{background:var(--purple);color:#fff;padding:6px 26px;font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:700;transform:rotate(-2deg)}
-.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
-.card{background:var(--card);border-radius:20px;padding:20px;box-shadow:0 4px 18px rgba(80,30,150,.12)}
-.card b{display:block;color:var(--ink);margin-bottom:6px}
-.card p,.card li{font-size:.95rem}
-.big{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:700;color:var(--ink);line-height:1}
-.big small{display:block;font-size:.9rem;color:var(--orange);font-weight:600;margin-top:6px}
-.num{font-size:2rem;font-weight:700;color:var(--purple)}
-.num small{display:block;font-size:.85rem;color:var(--soft);font-weight:600}
-.pill{display:inline-block;background:var(--pink);color:#fff;font-weight:700;padding:6px 18px;border-radius:12px;margin-bottom:12px}
-.tier{border-top:6px solid var(--pink)}
-.tier:nth-child(2){border-color:var(--purple)}.tier:nth-child(3){border-color:var(--orange)}
-ul{padding-left:1.2em;display:grid;gap:6px}
-.bars div{display:grid;grid-template-columns:120px 1fr 52px;align-items:center;gap:10px;margin:5px 0;font-size:.9rem;color:var(--soft)}
-.bars .t{height:12px;border-radius:8px;background:linear-gradient(90deg,var(--pink),var(--purple));width:0;transition:width .8s}
-.note{background:var(--purple);color:#fff;padding:14px 18px;border-radius:16px;font-size:.88rem;line-height:1.5}
-.note a{color:#fff}
-.logos{display:flex;flex-wrap:wrap;gap:12px}
-.logos span{background:var(--card);padding:12px 22px;border-radius:14px;font-weight:700}
-a{color:var(--purple);font-weight:600}
+:root {
+  /* Color — Sistema de Diseño TechnoLatinas */
+  --violeta: #8080FF;
+  --tinta: #130030;
+  --blanco: #FFF9F4;
+  --rosa: #FF84EE;
+  --neon: #D9FF3D;
+  --tinta-suave: #55466A;
+  --linea: rgba(19, 0, 48, 0.16);
+  --fondo: var(--blanco);
+  --texto: var(--tinta);
+  --texto-sobre-tinta: var(--blanco);
+  --foco: var(--tinta);
+  --foco-sobre-tinta: var(--blanco);
+  --error: #B4123F;
+  --error-fondo: #FFE1E8;
+
+  /* Espacio */
+  --espacio-1: 4px;
+  --espacio-2: 8px;
+  --espacio-3: 16px;
+  --espacio-4: 24px;
+  --espacio-5: 40px;
+  --espacio-6: 64px;
+  --espacio-7: 104px;
+
+  /* Radio */
+  --radio-sm: 8px;
+  --radio-md: 14px;
+  --radio-pastilla: 999px;
+
+  /* Sombra dura */
+  --sombra: 6px 7px 0 #130030;
+  --sombra-sm: 4px 5px 0 #130030;
+  --sombra-violeta: 6px 7px 0 #8080FF;
+
+  /* Contorno */
+  --borde: 3px;
+  --borde-fino: 1.5px;
+
+  /* Retícula */
+  --ancho-max: 1200px;
+  --margen-movil: 20px;
+  --margen-tableta: 40px;
+  --margen-escritorio: 64px;
+  --canal: 24px;
+
+  /* Giro */
+  --giro-sticker: -4deg;
+  --giro-palabra: -3deg;
+  --giro-ventana: -2deg;
+  --giro-estallido: 10deg;
+
+  /* Tipografía */
+  --font-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --font-texto: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-acento: "Fraunces", Georgia, "Times New Roman", serif;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body.tl-base {
+  background: var(--fondo);
+  color: var(--texto);
+  font: 400 1.0625rem/1.55 var(--font-texto);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+.tl-base :focus-visible { outline: var(--borde) solid var(--foco); outline-offset: 3px; }
+
+/* ---------- Tipografía ---------- */
+.tl-display, .tl-h1, .tl-h2, .tl-h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 78%;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin: 0;
+}
+.tl-display { font-size: clamp(3rem, 8.5vw, 6.75rem); line-height: 0.9; }
+.tl-h1 { font-size: clamp(2.25rem, 5.5vw, 4.25rem); line-height: 0.95; }
+.tl-h2 { font-size: clamp(1.75rem, 3.8vw, 2.75rem); line-height: 1; }
+.tl-h3 { font-size: 1.4rem; line-height: 1.1; letter-spacing: -0.015em; }
+.tl-entrada { font: 500 clamp(1.05rem, 1.8vw, 1.25rem)/1.45 var(--font-texto); margin: 0; max-width: 62ch; }
+.tl-cuerpo { font: 400 1.0625rem/1.55 var(--font-texto); margin: 0; max-width: 68ch; }
+.tl-chico { font: 400 0.875rem/1.45 var(--font-texto); margin: 0; }
+.tl-suave { color: var(--tinta-suave); }
+
+.tl-acento {
+  font-family: var(--font-acento);
+  font-style: italic;
+  font-weight: 800;
+  font-stretch: normal;
+  letter-spacing: -0.03em;
+  font-size: 1.06em;
+  font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+
+.tl-palabra {
+  display: inline-block;
+  background: var(--rosa);
+  color: var(--tinta);
+  border: var(--borde) solid var(--tinta);
+  border-radius: 0.14em;
+  box-shadow: 0.05em 0.06em 0 var(--tinta);
+  padding: 0 0.16em 0.07em 0.1em;
+  transform: rotate(var(--giro-palabra));
+  line-height: 0.95;
+}
+.tl-palabra--violeta { background: var(--violeta); }
+.tl-palabra--neon { background: var(--neon); }
+.tl-palabra--blanco { background: var(--blanco); }
+
+.tl-seleccion {
+  position: relative;
+  display: inline-block;
+  border: var(--borde) solid var(--tinta);
+  padding: 0 0.14em 0.06em;
+  background: var(--neon);
+  color: var(--tinta);
+}
+.tl-seleccion::before, .tl-seleccion::after {
+  content: ""; position: absolute; left: -8px; right: -8px; height: 13px;
+  background:
+    linear-gradient(var(--blanco), var(--blanco)) left 3px top 3px / 7px 7px no-repeat,
+    linear-gradient(var(--tinta), var(--tinta)) left top / 13px 13px no-repeat,
+    linear-gradient(var(--blanco), var(--blanco)) right 3px top 3px / 7px 7px no-repeat,
+    linear-gradient(var(--tinta), var(--tinta)) right top / 13px 13px no-repeat;
+}
+.tl-seleccion::before { top: -8px; }
+.tl-seleccion::after { bottom: -8px; }
+
+.tl-etiqueta {
+  display: inline-block;
+  width: fit-content;
+  background: var(--tinta);
+  color: var(--blanco);
+  border-radius: var(--radio-pastilla);
+  padding: 0.55em 1.15em;
+  font: 700 0.8125rem/1 var(--font-texto);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.tl-etiqueta--clara {
+  background: var(--blanco);
+  color: var(--tinta);
+  box-shadow: inset 0 0 0 var(--borde) var(--tinta);
+}
+
+/* ---------- Acciones ---------- */
+.tl-boton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
+  font: 700 1rem/1 var(--font-texto);
+  color: var(--tinta); background: var(--neon);
+  border: var(--borde) solid var(--tinta);
+  border-radius: var(--radio-pastilla);
+  padding: 0.8em 1.4em; min-height: 46px;
+  box-shadow: var(--sombra-sm);
+  text-decoration: none; cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.tl-boton:hover { transform: translate(-2px, -2px); box-shadow: var(--sombra); }
+.tl-boton:active { transform: translate(4px, 5px); box-shadow: 0 0 0 var(--tinta); }
+.tl-boton--violeta { background: var(--violeta); }
+.tl-boton--rosa { background: var(--rosa); }
+.tl-boton--claro { background: var(--blanco); }
+.tl-boton:disabled {
+  background: var(--blanco); color: var(--tinta-suave); border-color: var(--tinta-suave);
+  box-shadow: none; transform: none; cursor: not-allowed;
+}
+
+.tl-enlace {
+  color: inherit; font-weight: 700;
+  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em;
+}
+.tl-enlace:hover { background: var(--neon); color: var(--tinta); }
+
+/* ---------- Navegación fija ---------- */
+header.tl-nav {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0; right: 0;
+  z-index: 30;
+  background: var(--blanco);
+  color: var(--tinta);
+  border-bottom: var(--borde) solid var(--tinta);
+  padding: 8px clamp(16px, 4vw, 48px);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.brand-link {
+  display: inline-flex; align-items: center; cursor: pointer; flex-shrink: 0;
+}
+.brand-link svg { height: 30px; width: auto; display: block; }
+nav#menu {
+  display: flex; align-items: center; gap: 4px;
+  overflow-x: auto; scrollbar-width: none; flex: 1; justify-content: flex-end;
+}
+nav#menu::-webkit-scrollbar { display: none; }
+nav#menu a {
+  padding: 7px 12px;
+  border-radius: var(--radio-pastilla);
+  font: 700 0.875rem/1 var(--font-texto);
+  color: var(--tinta);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+nav#menu a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+}
+nav#menu a.on {
+  background: var(--neon);
+  border-color: var(--tinta);
+  box-shadow: 2px 3px 0 var(--tinta);
+}
+nav#menu a.nav-cta {
+  background: var(--rosa);
+  border: 2px solid var(--tinta);
+  box-shadow: 2px 3px 0 var(--tinta);
+  margin-left: 6px;
+}
+nav#menu a.nav-cta:hover {
+  text-decoration: none;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 4px 0 var(--tinta);
+}
+
+/* ---------- Contenedores: Ventana y Tarjeta ---------- */
+.tl-ventana {
+  background: var(--blanco); color: var(--tinta);
+  border: var(--borde) solid var(--tinta);
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+.tl-ventana__barra {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px 10px 8px 14px;
+  background: var(--rosa);
+  color: var(--tinta);
+  border-bottom: var(--borde) solid var(--tinta);
+  font: 700 0.875rem/1 var(--font-texto);
+}
+.tl-ventana__barra--violeta { background: var(--violeta); }
+.tl-ventana__barra--neon { background: var(--neon); }
+.tl-ventana__barra--blanco { background: var(--blanco); }
+.tl-ventana__ctl { display: flex; gap: 6px; flex: none; }
+.tl-ventana__ctl i { display: block; width: 15px; height: 15px; background: var(--blanco); border: 2px solid var(--tinta); }
+.tl-ventana__cuerpo { padding: 18px 20px; }
+
+.tl-tarjeta {
+  display: block;
+  background: var(--blanco); color: var(--tinta);
+  border: var(--borde) solid var(--tinta);
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra-sm);
+  padding: 18px 20px;
+  text-decoration: none;
+}
+.tl-tarjeta b.card-head {
+  display: block;
+  font: 800 1.25rem/1.1 var(--font-display);
+  font-stretch: 78%;
+  margin-bottom: 8px;
+  color: var(--tinta);
+}
+
+.tl-cuadricula {
+  background-image:
+    linear-gradient(rgba(19, 0, 48, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 0, 48, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ---------- Diapositivas (Slides) ---------- */
+.slide {
+  position: absolute; inset: 0;
+  padding: 82px clamp(74px, 8.5vw, 128px) 62px;
+  display: none; flex-direction: column; justify-content: center;
+  gap: 16px; overflow-y: auto;
+  background: var(--blanco); color: var(--tinta);
+}
+.slide.on { display: flex; }
+.slide--violeta { background: var(--violeta); color: var(--tinta); }
+.slide--rosa { background: var(--rosa); color: var(--tinta); }
+.slide--neon { background: var(--neon); color: var(--tinta); }
+.slide--tinta { background: var(--tinta); color: var(--blanco); }
+
+.slide-inner {
+  position: relative; z-index: 1;
+  width: 100%; max-width: var(--ancho-max);
+  margin-inline: auto;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.hero .slide-inner { align-items: center; text-align: center; }
+
+.grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.big-metric {
+  display: inline-flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  font: 800 clamp(2.5rem, 6vw, 4.5rem)/0.95 var(--font-display);
+  font-stretch: 78%;
+}
+.big-metric small {
+  font: 700 1.05rem/1.2 var(--font-texto);
+  background: var(--neon); color: var(--tinta);
+  border: var(--borde) solid var(--tinta);
+  border-radius: var(--radio-pastilla);
+  padding: 4px 14px;
+  box-shadow: var(--sombra-sm);
+}
+.num {
+  font: 800 2.1rem/1 var(--font-display);
+  font-stretch: 78%;
+  color: var(--tinta);
+  margin-top: 6px;
+}
+.num small {
+  display: block;
+  font: 600 0.85rem/1.3 var(--font-texto);
+  color: var(--tinta-suave);
+  margin-top: 2px;
+}
+
+ul.tl-lista {
+  padding-left: 1.25em;
+  display: grid; gap: 6px;
+  font: 500 1rem/1.45 var(--font-texto);
+}
+.tl-ventana ul.tl-lista, .tl-tarjeta ul.tl-lista {
+  font-size: 0.92rem;
+}
+
+/* Barras de datos (sin degradados, color sólido con borde tinta) */
+.bars { display: grid; gap: 7px; margin-top: 6px; }
+.bars div {
+  display: grid; grid-template-columns: 125px 1fr 54px;
+  align-items: center; gap: 10px;
+  font: 600 0.88rem/1.2 var(--font-texto);
+  color: var(--tinta);
+}
+.bars .track {
+  height: 16px;
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  border-radius: var(--radio-pastilla);
+  overflow: hidden;
+  padding: 0;
+}
+.bars .t {
+  display: block;
+  height: 100%;
+  background: var(--rosa);
+  border-right: 2px solid var(--tinta);
+  width: 0;
+  transition: width 0.6s ease-out;
+}
+.bars--violeta .t { background: var(--violeta); }
+.bars--neon .t { background: var(--neon); }
+
+.tl-nota {
+  background: var(--blanco);
+  color: var(--tinta);
+  border: var(--borde) solid var(--tinta);
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra-sm);
+  padding: 12px 16px;
+  font: 500 0.88rem/1.45 var(--font-texto);
+}
+
+.logos { display: flex; flex-wrap: wrap; gap: 14px; }
+.logos span {
+  background: var(--blanco);
+  color: var(--tinta);
+  border: var(--borde) solid var(--tinta);
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra-sm);
+  padding: 12px 22px;
+  font: 800 1.2rem/1 var(--font-display);
+  font-stretch: 78%;
+}
+.logos span:nth-child(even) { transform: rotate(1.5deg); }
+.logos span:nth-child(3n) { transform: rotate(-1.5deg); background: var(--neon); }
+
+/* ---------- Decoración ---------- */
+.tl-estallido {
+  position: relative;
+  display: inline-grid; place-items: center;
+  width: 8.8rem; aspect-ratio: 1;
+  transform: rotate(var(--giro-estallido));
+  flex-shrink: 0;
+}
+.tl-estallido svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tl-estallido span {
+  position: relative;
+  font: 800 1.35rem/0.95 var(--font-display);
+  font-stretch: 78%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--tinta);
+  padding: 0 1em;
+}
+.tl-circulo {
+  position: absolute; z-index: 0; pointer-events: none;
+  aspect-ratio: 1; border-radius: 50%;
+  background: var(--neon);
+  border: var(--borde) solid var(--tinta);
+}
+.tl-deco { position: absolute; pointer-events: none; z-index: 0; }
+
+/* ---------- Controles de navegación de diapositivas ---------- */
+.arrow {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  z-index: 25; width: 50px; height: 50px;
+  border-radius: 50%;
+  border: var(--borde) solid var(--tinta);
+  background: var(--neon); color: var(--tinta);
+  font: 800 1.5rem/1 var(--font-texto);
+  cursor: pointer;
+  box-shadow: var(--sombra-sm);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.arrow:hover:not(:disabled) { transform: translateY(-50%) translate(-2px, -2px); box-shadow: var(--sombra); }
+.arrow:active:not(:disabled) { transform: translateY(-50%) translate(3px, 4px); box-shadow: none; }
+.arrow:disabled {
+  background: var(--blanco); color: var(--tinta-suave); border-color: var(--tinta-suave);
+  box-shadow: none; cursor: not-allowed; opacity: 0.5;
+}
+#prev { left: 14px; }
+#next { right: 14px; }
+
+.dots {
+  position: fixed;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  left: 0; right: 0;
+  display: flex; justify-content: center; gap: 8px;
+  z-index: 20;
+}
+.dots i {
+  width: 12px; height: 12px;
+  border-radius: var(--radio-pastilla);
+  background: var(--blanco);
+  border: 2px solid var(--tinta);
+  cursor: pointer;
+  transition: width 0.18s, background-color 0.18s;
+}
+.dots i.on {
+  width: 32px;
+  background: var(--rosa);
+}
+
+@media (max-width: 640px) {
+  .arrow {
+    top: auto;
+    bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+    width: 44px; height: 44px;
+  }
+  .arrow:hover:not(:disabled), .arrow:active:not(:disabled) { transform: none; }
+  .slide { padding: 74px 20px 76px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tl-boton, .arrow, .tl-palabra, .tl-estallido, .logos span { transition: none; transform: none !important; }
+}
 </style>
 </head>
-<body>
-<header>
-  <span class="brand" data-go="0">#TechnoLatinas</span>
-  <nav id="menu">
-    <a data-go="0">Inicio</a><a data-go="1">Quiénes somos</a><a data-go="2">La Cumbre</a><a data-go="3">Audiencia</a><a data-go="5">Paquetes</a><a data-go="6">Sede</a><a data-go="7">Beneficios</a><a data-go="9">Contacto</a>
+<body class="tl-base">
+<header class="tl-nav">
+  <span class="brand-link" data-go="0" role="button" tabindex="0" aria-label="TechnoLatinas - Ir al inicio">
+    <svg width="154" height="42" viewBox="0 0 1242 344" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M266.967 21.627C287.665 19.355 319.493 22.458 337.451 33.332C345.701 39.008 351.928 50.632 354.010 60.139C355.471 66.812 356.905 78.919 348.288 80.707C343.831 81.632 339.965 74.748 336.410 72.428C330.691 68.695 324.542 66.163 318.050 64.057C276.295 50.635 227.031 62.652 184.748 70.418L194.426 78.557C187.684 97.650 178.446 115.923 170.983 134.744C152.874 180.497 135.896 226.853 123.833 274.616C121.415 284.194 119.340 294.512 117.830 304.266C116.711 311.495 116.938 319.195 115.580 326.404C115.294 327.926 115.009 330.399 113.601 331.145C105.009 336.365 88.524 326.137 83.893 318.586C75.528 304.943 80.408 284.890 83.846 270.186C96.888 212.156 128.995 133.813 150.889 78.533C114.443 89.091 77.180 100.935 39.049 100.542C19.390 100.890 -1.503 91.314 0.085 68.551C0.472 63.002 1.051 50.207 8.521 50.563C12.111 52.417 15.480 58.199 17.823 61.669C48.029 74.794 112.288 52.374 143.445 43.258C155.171 39.884 166.995 36.864 178.902 34.199C207.839 27.471 237.305 23.264 266.967 21.627Z" fill="#130030"/>
+      <path d="M409.913 56.775C422.504 56.132 427.576 56.432 435.918 66.645C421.527 100.918 409.590 131.875 399.027 167.461C413.568 146.723 443.123 107.458 463.721 146.263C461.689 154.502 457.266 167.453 454.635 175.833C448.195 196.340 444.283 211.421 441.361 232.506C453.407 221.074 466.347 198.114 472.918 182.550C479.817 166.224 481.012 143.257 494.614 130.964C503.781 122.678 513.347 130.842 519.161 138.584C517.869 150.099 514.981 156.107 510.883 166.922C520.306 153.708 531.869 135.603 547.780 130.882C559.832 129.712 569.761 131.550 571.654 145.148C573.525 158.596 544.019 224.858 553.582 230.583C566.584 228.135 582.713 172.265 589.109 160.549C600.320 140.587 609.025 129.701 632.152 128.057C668.905 125.445 666.701 155.669 664.012 184.490C667.858 179.148 674.821 168.629 679.773 168.113C681.276 169.002 680.805 168.337 681.554 170.587C681.710 185.576 668.773 198.597 659.658 203.892C659.127 205.452 658.560 207.000 657.964 208.533C647.552 235.149 628.277 269.003 593.937 255.525C582.757 251.137 579.163 242.488 574.807 232.129C570.246 239.256 563.073 249.472 555.949 253.482C537.952 263.613 520.732 255.329 520.373 233.843C519.950 208.626 527.419 188.111 533.134 164.493C516.068 185.147 504.676 208.218 495.383 233.664C491.323 244.778 493.031 269.964 470.483 253.794C463.892 249.068 462.719 243.616 461.915 235.949L461.215 236.944C452.559 249.199 447.717 255.193 432.673 257.774C430.868 257.832 427.089 257.327 425.326 256.864C420.291 255.505 416.013 252.177 413.455 247.630C402.371 228.259 415.660 186.038 421.526 165.444C403.737 185.212 392.144 211.764 382.916 236.521C381.017 242.321 382.543 249.714 378.741 254.812C373.507 261.828 366.836 261.085 360.434 255.813C352.374 249.175 350.748 243.964 349.578 233.724C338.641 246.349 328.215 256.956 311.971 262.732C294.988 268.772 275.650 263.916 265.158 248.808C261.346 243.319 259.778 238.251 257.670 232.027C257.483 232.280 257.293 232.532 257.102 232.782C244.943 248.810 230.615 262.845 209.883 265.921C185.784 269.496 167.657 252.412 165.135 228.967C162.446 203.973 172.653 177.473 187.592 157.699C200.078 140.544 226.916 122.381 247.116 138.263C264.491 151.924 254.214 181.839 242.472 195.780C230.092 210.480 217.676 216.080 199.291 217.946C199.296 218.238 199.306 218.530 199.318 218.822C200.121 237.666 203.940 252.616 225.892 239.081C263.443 215.929 262.376 168.733 295.027 142.173C327.590 115.685 366.816 144.787 342.381 181.516C338.874 186.785 328.611 188.748 323.749 184.241C318.275 174.839 334.204 162.308 328.858 154.005C311.703 144.962 294.937 200.772 293.082 213.372C288.731 242.922 306.116 251.558 327.413 232.332C350.841 211.182 360.475 183.389 369.090 154.113C377.063 130.194 392.531 71.112 409.913 56.775ZM612.766 182.451C609.111 194.446 598.710 228.568 611.870 237.560C614.358 239.258 621.078 233.097 622.876 230.967C629.028 222.037 633.464 213.689 637.059 203.431C626.936 199.000 625.005 197.317 617.895 188.390C617.114 187.413 613.665 183.119 612.766 182.451ZM232.117 152.372C221.552 161.283 214.780 172.307 208.926 184.703C207.472 187.781 203.548 195.429 204.834 198.679C206.899 199.432 206.322 199.192 208.825 198.396C219.271 191.441 226.392 183.874 232.431 172.690C235.182 167.597 242.319 154.359 232.117 152.372ZM638.238 147.560C631.813 161.408 630.966 172.203 641.974 184.178C645.563 175.006 650.056 152.472 638.238 147.560Z" fill="#8080FF"/>
+      <path d="M788.608 0.080C801.775 -0.607 813.498 3.008 819.326 16.023C825.817 30.533 823.747 48.305 818.501 62.852C807.161 94.276 781.114 110.778 752.319 124.011C744.774 147.087 738.968 171.762 731.593 195.086C723.679 220.085 714.978 241.074 704.007 264.638C749.593 264.673 822.177 266.665 862.974 289.673C873.349 295.894 881.668 306.626 883.981 318.595C885.322 325.506 887.525 341.626 878.330 343.478C873.710 342.456 869.178 336.247 865.973 332.675C858.782 324.662 845.092 319.004 835.108 315.296C790.398 298.693 744.679 294.729 697.567 292.091L685.519 291.585C667.998 313.248 652.216 326.604 622.743 331.709C599.539 335.729 564.384 317.786 584.391 291.002C598.361 272.302 637.199 268.802 660.380 266.481C685.910 217.067 694.760 185.812 709.901 133.201C683.530 134.141 647.905 125.773 638.172 97.362C635.644 89.983 634.908 71.197 644.243 68.367C645.164 68.892 652.141 79.413 653.299 81.188C667.851 103.457 694.362 102.203 718.500 101.755C729.633 64.938 746.868 11.251 788.608 0.080ZM641.281 291.576C633.515 291.772 585.837 294.781 600.792 310.238C615.795 314.077 632.226 302.942 641.848 292.340L641.281 291.576ZM792.815 20.386C772.877 37.511 766.923 65.605 760.425 90.210L767.969 86.251C785.918 72.983 797.140 58.546 801.480 36.119C802.784 29.405 801.237 20.560 792.815 20.386Z" fill="#130030"/>
+      <path d="M906.771 63.356C937.238 62.485 928.676 79.293 920.196 98.449C935.212 100.825 939.154 105.993 932.140 120.079C925.722 119.562 919.289 119.100 912.865 118.694C907.500 132.606 875.066 219.743 881.513 228.771C890.097 230.305 907.817 190.982 910.676 183.273C916.254 168.571 919.282 151.196 928.190 138.001C934.792 128.219 949.417 140.420 954.958 145.106C943.788 172.894 934.159 204.094 930.533 233.796C948.387 216.988 960.382 191.972 966.763 168.618C969.858 157.271 972.915 143.883 982.280 135.889C991.556 127.966 999.661 135.317 1005.500 142.826C1004.710 152.834 1001.310 160.650 997.687 169.847C1006.920 157.230 1020.520 136.026 1037.980 136.312C1046.070 136.003 1056.430 141.570 1054.780 151.124C1049.680 180.687 1037.260 203.891 1035.590 234.611C1060.650 211.461 1059.620 178.884 1080.570 153.632C1093.780 137.708 1110.990 129.527 1128.480 144.258C1129.670 142.991 1130.900 141.759 1132.160 140.563C1134.420 138.436 1136.690 137.401 1139.830 137.565C1144.500 137.809 1152.880 141.005 1155.980 144.601C1159.220 148.347 1140.210 200.213 1138.090 208.250C1135.700 217.377 1134.030 226.467 1133.350 235.896C1150.690 218.784 1164.320 187.319 1173.120 163.267C1178.910 147.437 1183.630 114.404 1213.440 129.831C1222.690 134.616 1210.510 148.474 1209.430 154.755C1206.710 170.476 1207.280 189.806 1209.640 205.815C1217.210 200.475 1232.550 178.375 1239.840 180.114C1246.660 187.119 1233.120 204.460 1228.490 210.266C1223.230 216.309 1217.220 220.932 1210.970 225.842C1210.570 238.893 1209.190 252.203 1200.790 262.808C1194.800 270.443 1185.980 275.336 1176.340 276.379C1156.520 278.535 1148.090 265.687 1146.470 248.020C1136.110 257.887 1118.440 266.992 1108.810 250.047C1105.930 244.959 1105.500 239.932 1104.660 234.232C1095.860 247.028 1089.440 256.122 1073.930 259.772C1061.610 256.613 1058.590 248.928 1054.550 238.019C1046.770 249.536 1036.850 262.493 1020.970 258.847C1012.730 256.955 1008.110 251.072 1006.770 242.890C1002.610 217.385 1012.710 192.670 1018.520 168.452C1002.760 186.395 990.872 213.999 982.391 236.239C980.188 242.144 980.828 249.963 977.372 255.289C973.371 261.453 966.401 260.894 961.067 256.656C954.266 251.253 951.702 247.606 950.236 238.907C931.086 259.084 910.543 270.256 901.945 234.021C901.591 234.526 901.245 235.027 900.884 235.526C892.654 247.093 875.235 265.316 858.598 254.214C851.790 249.676 850.722 240.248 849.616 232.626C842.351 243.420 825.198 264.518 809.282 255.198C801.885 250.866 799.696 240.430 797.899 232.558C797.272 233.663 796.624 234.756 795.947 235.835C788.040 248.543 774.763 264.263 757.661 254.257C752.467 251.219 748.245 242.623 747.531 236.598C744.443 209.403 754.272 180.176 769.738 157.852C783.811 137.538 800.832 125.246 823.459 141.067C835.116 130.243 842.778 136.270 853.344 144.380C842.594 179.302 832.596 195.484 827.556 232.826C855.850 205.812 866.379 157.026 879.715 119.856C873.577 119.076 861.258 116.798 859.770 109.666C861.391 98.995 879.221 99.178 887.304 98.814C892.233 85.363 895.321 71.925 906.771 63.356ZM1178.642 235.485C1166.756 241.450 1159.518 242.912 1165.314 256.865C1172.832 253.997 1184.886 244.243 1178.642 235.485ZM1114.670 155.904C1098.300 169.354 1092.520 184.669 1088.050 204.963C1086.810 210.551 1083.850 224.044 1086.380 229.223L1087.420 229.877C1088.700 229.291 1088.910 229.284 1089.720 228.185C1096.140 217.908 1127.980 167.715 1117.820 156.867C1116.660 156.313 1115.920 155.795 1114.670 155.904ZM809.128 153.047C791.901 166.793 786.566 182.513 781.379 203.311C779.905 209.214 777.114 221.142 779.493 226.778L780.576 227.615C781.453 227.375 782.057 227.305 782.794 226.820C789.455 216.992 824.424 162.610 811.618 153.310L809.128 153.047ZM1177.290 189.845C1175.070 194.103 1159.590 224.397 1160.300 226.830L1161.140 226.922C1167.100 224.016 1173.430 220.774 1179.500 218.205C1179.430 211.893 1179.770 194.920 1177.290 189.845Z" fill="#8080FF"/>
+      <path d="M948.276 93.541C951.024 93.124 953.831 93.168 956.572 93.671C960.389 94.402 963.734 96.651 965.856 99.902C972.325 109.818 966.954 127.908 957.287 134.230C955.496 134.141 952.940 133.772 951.157 133.446C946.353 132.523 942.123 129.693 939.441 125.602C931.933 114.312 937.813 100.515 948.276 93.541Z" fill="#8080FF"/>
+    </svg>
+  </span>
+  <nav id="menu" aria-label="Secciones de la presentación">
+    <a data-go="0">Inicio</a>
+    <a data-go="1">Quiénes somos</a>
+    <a data-go="2">La Cumbre</a>
+    <a data-go="3">Audiencia</a>
+    <a data-go="5">Paquetes</a>
+    <a data-go="6">Sede</a>
+    <a data-go="7">Beneficios</a>
+    <a data-go="9">Contacto</a>
+    <a class="nav-cta" href="cotizadorpatrocionios/">Armar alianza</a>
   </nav>
 </header>
 
-<section class="slide hero">
-  <span class="date">Marzo</span>
-  <h1>Cumbre de<br>Comunidades</h1>
-  <span class="stamp">2027</span>
-  <span class="tag">#TechnoLatinas</span>
-  <p>Paquetes de alianza y patrocinio</p>
-</section>
-
-<section class="slide">
-  <h2>¿Quiénes <em>somos?</em></h2>
-  <p>Una comunidad que visibiliza y amplifica las voces de mujeres latinas en tecnología, creando oportunidades de participación y liderazgo.</p>
-  <div class="big">+30,000<small>impactos digitales</small></div>
-  <div class="grid">
-    <div class="card"><b style="color:var(--orange)">Alcance público</b><div class="num" data-n="12700">0<small>X</small></div><div class="num" data-n="9300">0<small>LinkedIn</small></div></div>
-    <div class="card"><b style="color:var(--orange)">Red privada</b><div class="num" data-n="917">0<small>miembros en Telegram</small></div><div class="num" data-n="442">0<small>miembros en Slack</small></div></div>
-    <div class="card"><b style="color:var(--orange)">Presencia multicanal</b><div class="num" data-n="11965">0<small>seguidores</small></div><p>Instagram, Facebook, YouTube, Twitch</p></div>
+<!-- 1. Portada (blanco con Cuadricula, PalabraSticker, Estallido, Garabato) -->
+<section class="slide hero tl-cuadricula">
+  <svg class="tl-deco" style="width:420px;bottom:8%;left:6%;opacity:0.9" viewBox="0 0 620 220" fill="none" aria-hidden="true">
+    <path d="M20 160 C 130 165, 250 60, 200 30 C 150 0, 100 110, 210 140 C 330 172, 450 70, 600 110" stroke="#8080FF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <div class="slide-inner">
+    <span class="tl-etiqueta">Marzo 2027 · Ciudad de México</span>
+    <h1 class="tl-display">Cumbre de <span class="tl-palabra tl-acento">comunidades.</span></h1>
+    <p class="tl-entrada">Paquetes de alianza y patrocinio para construir juntas nuestro encuentro anual.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:8px">
+      <button type="button" class="tl-boton" data-go="5">Ver paquetes de alianza</button>
+      <a class="tl-boton tl-boton--rosa" href="cotizadorpatrocionios/">Ir al cotizador interactivo</a>
+    </div>
+    <div class="tl-estallido" style="margin-top:4px" aria-hidden="true">
+      <svg viewBox="-112 -112 236 236" fill="none">
+        <polygon points="100.0,0.0 77.3,20.7 86.6,50.0 56.6,56.6 50.0,86.6 20.7,77.3 0.0,100.0 -20.7,77.3 -50.0,86.6 -56.6,56.6 -86.6,50.0 -77.3,20.7 -100.0,0.0 -77.3,-20.7 -86.6,-50.0 -56.6,-56.6 -50.0,-86.6 -20.7,-77.3 -0.0,-100.0 20.7,-77.3 50.0,-86.6 56.6,-56.6 86.6,-50.0 77.3,-20.7" transform="translate(8 9)" fill="#130030" stroke="#130030" stroke-width="9" stroke-linejoin="round"/>
+        <polygon points="100.0,0.0 77.3,20.7 86.6,50.0 56.6,56.6 50.0,86.6 20.7,77.3 0.0,100.0 -20.7,77.3 -50.0,86.6 -56.6,56.6 -86.6,50.0 -77.3,20.7 -100.0,0.0 -77.3,-20.7 -86.6,-50.0 -56.6,-56.6 -50.0,-86.6 -20.7,-77.3 -0.0,-100.0 20.7,-77.3 50.0,-86.6 56.6,-56.6 86.6,-50.0 77.3,-20.7" fill="#D9FF3D" stroke="#130030" stroke-width="5" stroke-linejoin="round"/>
+      </svg>
+      <span>¡Súmate en 2027!</span>
+    </div>
   </div>
 </section>
 
-<section class="slide">
-  <h2>¿Qué es la <em>Cumbre de Comunidades?</em></h2>
-  <p>Un encuentro que conecta a mujeres en tecnología desde la experiencia y la comunidad.</p>
-  <ul>
-    <li>Reúne a mujeres que forman parte de comunidades tecnológicas.</li>
-    <li>Charlas, talleres y espacios de networking con enfoque técnico.</li>
-    <li>Un espacio para compartir conocimiento real y crear conexiones duraderas.</li>
-  </ul>
-  <div class="card"><b>Verticales</b><p>Tecnologías futuras · Seguridad · Resiliencia</p></div>
-  <p><b style="color:var(--purple)">No es solo un evento, es un punto de encuentro entre mujeres que inspiran a otras mujeres.</b></p>
-</section>
-
-<section class="slide">
-  <h2>Audiencia <em>esperada</em></h2>
-  <div class="big">100<small>asistentes</small></div>
-  <p>Perfil: mujeres en tecnología, estudiantes STEM, profesionales mid-level y líderes de comunidad.</p>
-  <div class="card"><b>Talento TechnoLatinas</b><div class="bars" id="talento"></div></div>
-</section>
-
-<section class="slide">
-  <h2>TechnoLatinas <em>alrededor del mundo</em></h2>
-  <p>Presencia internacional que refleja la diversidad de nuestra comunidad.</p>
-  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
-    <div class="card"><b>Top países</b><div class="bars" id="paises"></div></div>
-    <div class="card"><b>Edades</b><div class="bars" id="edades"></div>
-      <p style="margin-top:10px"><b style="display:inline">Top ciudades:</b> Ciudad de México, Bogotá, Lima, Puebla, La Paz, Buenos Aires.</p></div>
+<!-- 2. Quiénes somos (fondo violeta) -->
+<section class="slide slide--violeta">
+  <div class="slide-inner">
+    <span class="tl-etiqueta tl-etiqueta--clara">Nuestra comunidad</span>
+    <h2 class="tl-h1">Quiénes <span class="tl-palabra tl-palabra--blanco tl-acento">somos.</span></h2>
+    <p class="tl-entrada">Somos una comunidad que visibiliza y amplifica las voces de mujeres latinas en tecnología, abriendo camino y liderazgo juntas.</p>
+    <div class="big-metric">+30,000 <small>impactos digitales</small></div>
+    <div class="grid">
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra"><span>alcance-publico.txt</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo">
+          <div class="num" data-n="12700">0<small>seguidoras en X</small></div>
+          <div class="num" data-n="9300">0<small>conexiones en LinkedIn</small></div>
+        </div>
+      </div>
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra tl-ventana__barra--neon"><span>red-privada :)</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo">
+          <div class="num" data-n="917">0<small>integrantes en Telegram</small></div>
+          <div class="num" data-n="442">0<small>integrantes en Slack</small></div>
+        </div>
+      </div>
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra tl-ventana__barra--blanco"><span>multicanal.cfg</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo">
+          <div class="num" data-n="11965">0<small>seguidoras en redes</small></div>
+          <p class="tl-chico" style="margin-top:8px">Instagram, Facebook, YouTube y Twitch.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- 3. Qué es la Cumbre (fondo blanco) -->
 <section class="slide">
-  <h2>Paquetes de <em>alianza</em></h2><p>Elige cómo quieres ser parte de la Cumbre 2027.</p>
-  <div class="grid">
-    <div class="card tier"><span class="pill">Aliado de sedes</span><p>Aportación en especie</p><b>Tu aportación</b><ul><li>Instalaciones y apoyo logístico</li><li>Préstamo de mobiliario</li><li>Préstamo de equipo de audio</li></ul><b>Recibes</b><ul><li>Trajinera con el nombre de la empresa</li><li>Beneficios para todos los aliados</li></ul></div>
-    <div class="card tier"><span class="pill">Aliado de experiencia</span><p>Aportación en especie</p><b>Tu aportación (elige una o varias)</b><ul><li>Coffee break</li><li>Lunch boxes</li><li>Snacks</li><li>Swag o kits de bienvenida</li></ul><b>Recibes</b><ul><li>Beneficios para todos los aliados</li></ul></div>
-    <div class="card tier"><span class="pill">Aliado de impulso</span><p>Aportación monetaria</p><b>Tu aportación</b><ul><li>Apoyo económico para la operación</li><li>Donación directa en <a href="https://technolatinas.org/donar" target="_blank" rel="noopener">technolatinas.org/donar</a></li></ul><b>Recibes</b><ul><li>Beneficios para todos los aliados</li></ul></div>
+  <div class="slide-inner">
+    <span class="tl-etiqueta">El encuentro</span>
+    <h2 class="tl-h1">Qué es la Cumbre de <span class="tl-palabra tl-palabra--violeta tl-acento">Comunidades.</span></h2>
+    <p class="tl-entrada">Un encuentro que conecta a mujeres en tecnología desde la experiencia real y la comunidad.</p>
+    <div class="grid">
+      <div class="tl-tarjeta">
+        <b class="card-head">Lo que vivimos</b>
+        <ul class="tl-lista">
+          <li>Reúne a mujeres que forman parte activa de comunidades tecnológicas.</li>
+          <li>Charlas, talleres y espacios de networking con enfoque técnico.</li>
+          <li>Un espacio para compartir conocimiento real y crear vínculos duraderos.</li>
+        </ul>
+      </div>
+      <div class="tl-ventana" style="transform:rotate(-1.5deg)">
+        <div class="tl-ventana__barra tl-ventana__barra--neon"><span>verticales-2027.md</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo" style="display:grid;gap:12px">
+          <p class="tl-cuerpo"><strong>Tecnologías futuras · Seguridad · Resiliencia</strong></p>
+          <p class="tl-cuerpo">No es solo un evento: es un punto de encuentro entre mujeres que acompañan e inspiran a otras mujeres.</p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="note">Somos una organización sin fines de lucro 501(c)(3) en Estados Unidos. Si la organización aliada tiene la estructura para hacer donativos internacionales, podemos recibir recursos directamente en nuestra cuenta bancaria en EE.UU. y emitir el recibo deducible correspondiente.</div>
 </section>
 
-<section class="slide">
-  <h2>Requerimientos para <em>sede aliada</em></h2>
-  <span class="pill" style="width:fit-content">Paquete Aliado de sedes · primer día de la Cumbre</span>
-  <div class="grid">
-    <div class="card">Capacidad para 100 personas</div><div class="card">Sillas y mesas tipo conferencia</div>
-    <div class="card">Área para registro</div><div class="card">Proyector y pantalla</div>
-    <div class="card">Sistema de audio (micrófonos)</div><div class="card">Conexión WiFi estable</div>
-    <div class="card">Espacio para networking/brunch</div><div class="card">Acceso a baños</div>
+<!-- 4. Audiencia esperada (fondo rosa) -->
+<section class="slide slide--rosa">
+  <div class="slide-inner">
+    <span class="tl-etiqueta">Participantes</span>
+    <h2 class="tl-h1">Audiencia <span class="tl-palabra tl-palabra--neon tl-acento">esperada.</span></h2>
+    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <div class="big-metric">100 <small>asistentes presenciales</small></div>
+      <p class="tl-cuerpo" style="max-width:46ch">Mujeres en tecnología, estudiantes STEM, profesionales de nivel medio y lideresas de comunidad.</p>
+    </div>
+    <div class="tl-ventana">
+      <div class="tl-ventana__barra tl-ventana__barra--blanco"><span>talento-technolatinas.csv</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+      <div class="tl-ventana__cuerpo">
+        <div class="bars bars--violeta" id="talento"></div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- 5. Alrededor del mundo (fondo blanco con cuadrícula) -->
+<section class="slide tl-cuadricula">
+  <div class="slide-inner">
+    <span class="tl-etiqueta">Alcance regional</span>
+    <h2 class="tl-h1">TechnoLatinas alrededor del <span class="tl-acento tl-palabra">mundo.</span></h2>
+    <p class="tl-entrada">Presencia internacional que refleja la diversidad de quienes integran nuestra comunidad.</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra tl-ventana__barra--violeta"><span>paises.csv</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo"><div class="bars" id="paises"></div></div>
+      </div>
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra tl-ventana__barra--neon"><span>edades-y-ciudades.txt</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo">
+          <div class="bars bars--violeta" id="edades"></div>
+          <p class="tl-chico" style="margin-top:12px"><strong>Principales ciudades:</strong> Ciudad de México, Bogotá, Lima, Puebla, La Paz y Buenos Aires.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Paquetes de alianza (fondo violeta) -->
+<section class="slide slide--violeta">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>
+        <span class="tl-etiqueta tl-etiqueta--clara">Formas de colaborar</span>
+        <h2 class="tl-h1" style="margin-top:8px">Paquetes de <span class="tl-palabra tl-palabra--neon tl-acento">alianza.</span></h2>
+      </div>
+      <a class="tl-boton" href="cotizadorpatrocionios/">Simular mi ticket en el cotizador</a>
+    </div>
+    <div class="grid">
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra"><span>1. Aliado de sedes · En especie</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo" style="display:grid;gap:8px">
+          <b class="card-head">Tu aportación</b>
+          <ul class="tl-lista"><li>Instalaciones y apoyo logístico</li><li>Préstamo de mobiliario</li><li>Préstamo de equipo de audio</li></ul>
+          <b class="card-head" style="margin-top:4px">A qué accedes</b>
+          <ul class="tl-lista"><li>Beneficios para todos los aliados</li></ul>
+        </div>
+      </div>
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra tl-ventana__barra--neon"><span>2. Aliado de experiencia · En especie</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo" style="display:grid;gap:8px">
+          <b class="card-head">Tu aportación (una o varias)</b>
+          <ul class="tl-lista"><li>Coffee break</li><li>Lunch boxes</li><li>Snacks</li><li>Swag o kits de bienvenida</li></ul>
+          <b class="card-head" style="margin-top:4px">A qué accedes</b>
+          <ul class="tl-lista"><li>Beneficios para todos los aliados</li></ul>
+        </div>
+      </div>
+      <div class="tl-ventana">
+        <div class="tl-ventana__barra tl-ventana__barra--blanco"><span>3. Aliado de impulso · Monetaria</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+        <div class="tl-ventana__cuerpo" style="display:grid;gap:8px">
+          <b class="card-head">Tu aportación</b>
+          <ul class="tl-lista"><li>Apoyo económico para la operación</li><li>Donación directa en <a class="tl-enlace" href="https://technolatinas.org/donar" target="_blank" rel="noopener">technolatinas.org/donar</a></li></ul>
+          <b class="card-head" style="margin-top:4px">A qué accedes</b>
+          <ul class="tl-lista"><li>Beneficios para todos los aliados</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="tl-nota">
+      <strong>Nota fiscal 501(c)(3):</strong> Somos una organización sin fines de lucro 501(c)(3) en Estados Unidos. Si tu organización cuenta con estructura para hacer donativos internacionales, podemos recibir recursos en nuestra cuenta bancaria en EE.UU. y emitir el recibo deducible correspondiente.
+    </div>
+  </div>
+</section>
+
+<!-- 7. Requerimientos para sede aliada (fondo blanco) -->
 <section class="slide">
-  <h2>Beneficios <em>para todos los aliados</em></h2>
-  <ul>
-    <li>Presencia de marca en redes sociales antes, durante y después del evento.</li>
-    <li>Logo en el material digital del evento.</li>
-    <li>Menciones durante el evento.</li>
-    <li>Tráfico y visibilidad ante una comunidad tech femenina especializada.</li>
-    <li>2 accesos para que tu equipo sea parte de la experiencia y conecte con la comunidad.</li>
-  </ul>
-  <p><b style="color:var(--purple)">Ser parte de esta experiencia es invertir en impacto, conexión y futuro.</b></p>
+  <div class="slide-inner">
+    <span class="tl-etiqueta">Paquete Aliado de sedes · Día 1</span>
+    <h2 class="tl-h1">Requerimientos para <span class="tl-palabra tl-acento">sede.</span></h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+      <div class="tl-tarjeta"><b class="card-head">Capacidad</b><p class="tl-chico">Espacio cómodo para recibir a 100 personas.</p></div>
+      <div class="tl-tarjeta"><b class="card-head">Mobiliario</b><p class="tl-chico">Sillas y mesas tipo conferencia.</p></div>
+      <div class="tl-tarjeta"><b class="card-head">Recepción</b><p class="tl-chico">Área dedicada para registro y bienvenida.</p></div>
+      <div class="tl-tarjeta"><b class="card-head">Proyección</b><p class="tl-chico">Proyector y pantalla visibles desde toda la sala.</p></div>
+      <div class="tl-tarjeta"><b class="card-head">Audio</b><p class="tl-chico">Sistema de sonido con micrófonos.</p></div>
+      <div class="tl-tarjeta"><b class="card-head">Conectividad</b><p class="tl-chico">Conexión WiFi estable para 100 asistentes.</p></div>
+      <div class="tl-tarjeta"><b class="card-head">Convivencia</b><p class="tl-chico">Espacio para networking y brunch.</p></div>
+      <div class="tl-tarjeta"><b class="card-head">Servicios</b><p class="tl-chico">Acceso a baños cercanos y accesibles.</p></div>
+    </div>
+  </div>
 </section>
 
+<!-- 8. Beneficios para todos los aliados (fondo neon — máx 1 por página, botón principal cambia a violeta) -->
+<section class="slide slide--neon">
+  <div class="slide-inner">
+    <span class="tl-etiqueta">Valor compartido</span>
+    <h2 class="tl-h1">Beneficios para todos los <span class="tl-palabra tl-palabra--rosa tl-acento">aliados.</span></h2>
+    <div class="tl-ventana">
+      <div class="tl-ventana__barra tl-ventana__barra--violeta"><span>beneficios-base.txt :)</span><span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span></div>
+      <div class="tl-ventana__cuerpo">
+        <ul class="tl-lista" style="font-size:1.05rem;gap:10px">
+          <li>Presencia de marca en redes sociales antes, durante y después del evento.</li>
+          <li>Logo en el material digital oficial del encuentro.</li>
+          <li>Menciones de agradecimiento durante el evento.</li>
+          <li>Tráfico y visibilidad ante una comunidad tech femenina especializada.</li>
+          <li>2 accesos para que tu equipo sea parte de la experiencia y conecte con la comunidad.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <p class="tl-entrada"><strong>Sumarte a esta experiencia es invertir en impacto, conexión y futuro.</strong></p>
+      <a class="tl-boton tl-boton--violeta" href="cotizadorpatrocionios/">Cotizar mi participación</a>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Han colaborado con nosotras (fondo blanco) -->
 <section class="slide">
-  <h2>Han colaborado <em>con nosotras</em></h2>
-  <div class="logos"><span>Zillow</span><span>MasterClass</span><span>butter</span><span>Flink</span><span>simpat tech</span><span>Universidad Tecmilenio</span><span>Cisco</span><span>PayPal</span></div>
+  <div class="slide-inner">
+    <span class="tl-etiqueta">Red de confianza</span>
+    <h2 class="tl-h1">Han colaborado con <span class="tl-palabra tl-palabra--violeta tl-acento">nosotras.</span></h2>
+    <p class="tl-entrada">Organizaciones y universidades que ya han abierto camino junto a TechnoLatinas.</p>
+    <div class="logos" style="margin-top:8px">
+      <span>Zillow</span>
+      <span>MasterClass</span>
+      <span>butter</span>
+      <span>Flink</span>
+      <span>simpat tech</span>
+      <span>Universidad Tecmilenio</span>
+      <span>Cisco</span>
+      <span>PayPal</span>
+    </div>
+  </div>
 </section>
 
-<section class="slide hero">
-  <h2>Construyamos juntos <em>esta experiencia</em></h2>
-  <span class="tag">#TechnoLatinas</span>
-  <p><a href="mailto:partners@technolatinas.org">partners@technolatinas.org</a></p>
-  <p><a href="https://technolatinas.org" target="_blank" rel="noopener">technolatinas.org</a> · <a href="https://technolatinas.org/donar" target="_blank" rel="noopener">Donar</a></p>
+<!-- 10. Cierre / Contacto (fondo tinta, texto blanco) -->
+<section class="slide slide--tinta hero">
+  <div class="slide-inner">
+    <span class="tl-etiqueta tl-etiqueta--clara">Hablemos</span>
+    <h2 class="tl-display">Construyamos juntas esta <span class="tl-palabra tl-palabra--neon tl-acento">experiencia.</span></h2>
+    <p class="tl-entrada">Escríbenos o arma tu ticket de alianza para coordinar los siguientes pasos.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px">
+      <a class="tl-boton" href="cotizadorpatrocionios/">Armar mi ticket de alianza</a>
+      <a class="tl-boton tl-boton--rosa" href="mailto:partners@technolatinas.org">Escribir a partners@technolatinas.org</a>
+      <a class="tl-boton tl-boton--claro" href="https://technolatinas.org/donar" target="_blank" rel="noopener">Donar en technolatinas.org</a>
+    </div>
+  </div>
 </section>
 
-<button class="arrow" id="prev" aria-label="Anterior">‹</button>
-<button class="arrow" id="next" aria-label="Siguiente">›</button>
-<div class="dots" id="dots"></div>
+<button class="arrow" id="prev" aria-label="Diapositiva anterior">‹</button>
+<button class="arrow" id="next" aria-label="Siguiente diapositiva">›</button>
+<div class="dots" id="dots" aria-label="Paginación de diapositivas"></div>
 
 <script>
 (function(){
   var slides=[].slice.call(document.querySelectorAll('.slide')),i=0,dots=document.getElementById('dots'),links=[].slice.call(document.querySelectorAll('[data-go]'));
   slides.forEach(function(_,k){var d=document.createElement('i');d.onclick=function(){show(k)};dots.appendChild(d)});
-  function bars(id,rows,max){var el=document.getElementById(id);rows.forEach(function(r){var d=document.createElement('div');d.innerHTML='<span>'+r[0]+'</span><span class="t" data-w="'+(r[1]/max*100)+'"></span><span>'+r[1]+'%</span>';el.appendChild(d)})}
+  function bars(id,rows,max){
+    var el=document.getElementById(id);
+    rows.forEach(function(r){
+      var d=document.createElement('div');
+      d.innerHTML='<span>'+r[0]+'</span><span class="track"><span class="t" data-w="'+(r[1]/max*100)+'"></span></span><span>'+r[1]+'%</span>';
+      el.appendChild(d);
+    });
+  }
   bars('talento',[['Estudiantes',25],['Software dev',20],['Manager / Lead',14.3],['Data',10],['Diseño UI/UX',8.6],['Marketing',7.1],['Consultoría',5.7]],25);
   bars('paises',[['México',52],['Colombia',14],['Perú',9],['Argentina',8],['Alemania',5],['Ecuador',3],['Chile',2]],52);
   bars('edades',[['25–34 años',64.8],['35–44 años',19.4],['18–24 años',14.9]],64.8);

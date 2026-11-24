@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cotizador de Patrocinios · Cumbre de Comunidades 2027</title>
+<meta name="theme-color" content="#8080FF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Fraunces:ital,opsz,wght,SOFT,WONK@1,9..144,100..900,0..100,0..1&family=Instrument+Sans:wght@400..700&display=swap">
+<style>
+:root {
+  --violeta: #8080FF;
+  --tinta: #130030;
+  --blanco: #FFF9F4;
+  --rosa: #FF84EE;
+  --neon: #D9FF3D;
+  --tinta-suave: #55466A;
+  --linea: rgba(19, 0, 48, 0.16);
+  --radio-sm: 8px;
+  --radio-md: 14px;
+  --radio-pastilla: 999px;
+  --sombra: 6px 7px 0 #130030;
+  --sombra-sm: 4px 5px 0 #130030;
+  --borde: 3px;
+  --giro-palabra: -3deg;
+  --font-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --font-texto: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-acento: "Fraunces", Georgia, "Times New Roman", serif;
+  box-sizing: border-box;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  background: var(--blanco);
+  color: var(--tinta);
+  font: 400 1rem/1.5 var(--font-texto);
+  -webkit-font-smoothing: antialiased;
+  display: flex; flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background-image:
+    linear-gradient(rgba(19, 0, 48, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(19, 0, 48, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+:focus-visible { outline: var(--borde) solid var(--tinta); outline-offset: 3px; }
+
+/* Barra superior */
+header {
+  height: 58px; flex-shrink: 0;
+  background: var(--blanco);
+  border-bottom: var(--borde) solid var(--tinta);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 0 clamp(18px, 4vw, 44px); z-index: 20;
+}
+.brand-link { display: inline-flex; align-items: center; text-decoration: none; }
+.brand-link svg { height: 30px; width: auto; display: block; }
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-links a {
+  padding: 6px 13px; border-radius: var(--radio-pastilla);
+  font: 700 0.85rem/1 var(--font-texto); color: var(--tinta);
+  text-decoration: none; border: 2px solid transparent;
+}
+.nav-links a:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.25em; }
+.nav-links a.on {
+  background: var(--neon); border-color: var(--tinta); box-shadow: 2px 3px 0 var(--tinta);
+}
+
+/* Pantalla dividida sin scroll global */
+.workspace {
+  flex: 1; min-height: 0; max-width: 1240px; width: 100%; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+  padding: 18px clamp(18px, 4vw, 44px) 22px; align-items: stretch;
+}
+
+.tl-ventana {
+  display: flex; flex-direction: column; min-height: 0;
+  background: var(--blanco); color: var(--tinta);
+  border: var(--borde) solid var(--tinta);
+  border-radius: var(--radio-md);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+.tl-ventana__barra {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px 12px 8px 16px;
+  background: var(--violeta);
+  border-bottom: var(--borde) solid var(--tinta);
+  font: 700 0.85rem/1 var(--font-texto);
+  flex-shrink: 0;
+}
+.tl-ventana__barra--rosa { background: var(--rosa); }
+.tl-ventana__ctl { display: flex; gap: 6px; flex: none; }
+.tl-ventana__ctl i { display: block; width: 14px; height: 14px; background: var(--blanco); border: 2px solid var(--tinta); }
+
+/* Mitad izquierda: Menú lateral */
+.menu-inner {
+  flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 16px 18px;
+}
+.menu-top { margin-bottom: 12px; flex-shrink: 0; }
+.menu-top h1 {
+  font: 800 clamp(1.45rem, 2.4vw, 1.95rem)/0.95 var(--font-display);
+  font-stretch: 78%; letter-spacing: -0.025em;
+}
+.tl-acento {
+  font-family: var(--font-acento); font-style: italic; font-weight: 800;
+  letter-spacing: -0.03em; font-variation-settings: "SOFT" 100, "WONK" 1;
+}
+.tl-palabra {
+  display: inline-block; background: var(--neon); color: var(--tinta);
+  border: 2px solid var(--tinta); border-radius: 0.14em;
+  box-shadow: 2px 3px 0 var(--tinta); padding: 0 0.16em 0.05em 0.1em;
+  transform: rotate(var(--giro-palabra));
+}
+.menu-top p { font-size: 0.85rem; color: var(--tinta-suave); margin-top: 4px; }
+
+.cat-tabs { display: flex; gap: 6px; margin-bottom: 12px; flex-shrink: 0; flex-wrap: wrap; }
+.cat-tab {
+  padding: 6px 12px; border-radius: var(--radio-pastilla);
+  border: 2px solid var(--tinta); background: var(--blanco); color: var(--tinta);
+  font: 700 0.76rem/1 var(--font-texto); cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.cat-tab:hover { transform: translate(-1px, -1px); box-shadow: 2px 3px 0 var(--tinta); }
+.cat-tab.on { background: var(--tinta); color: var(--blanco); }
+.cat-tab[data-filter="sedes"].on { background: var(--rosa); color: var(--tinta); }
+.cat-tab[data-filter="experiencia"].on { background: var(--violeta); color: var(--tinta); }
+.cat-tab[data-filter="impulso"].on { background: var(--neon); color: var(--tinta); }
+
+.menu-list {
+  flex: 1; min-height: 0; overflow-y: auto; padding-right: 4px;
+  display: flex; flex-direction: column; gap: 12px; scrollbar-width: thin;
+}
+.cat-block { display: flex; flex-direction: column; gap: 6px; }
+.cat-label {
+  font: 700 0.72rem/1 var(--font-texto); text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--tinta); display: flex; align-items: center; justify-content: space-between;
+}
+.cat-label span { font-weight: 600; text-transform: none; letter-spacing: 0; color: var(--tinta-suave); }
+
+.items-grid { display: grid; gap: 7px; }
+.item-btn {
+  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
+  padding: 9px 12px; border-radius: var(--radio-sm);
+  border: 2px solid var(--tinta); background: var(--blanco); color: var(--tinta);
+  font-family: inherit; cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s, background-color 0.12s;
+}
+.item-btn:hover { transform: translate(-2px, -2px); box-shadow: var(--sombra-sm); }
+.item-btn.active { background: var(--neon); box-shadow: var(--sombra-sm); }
+.item-btn .box {
+  width: 20px; height: 20px; border-radius: 5px; border: 2px solid var(--tinta);
+  background: var(--blanco); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font: 700 0.78rem/1 var(--font-texto); color: transparent;
+}
+.item-btn.active .box { background: var(--tinta); color: var(--blanco); }
+.item-info { flex: 1; min-width: 0; }
+.item-name { font: 700 0.88rem/1.2 var(--font-texto); display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.item-sub { font: 400 0.76rem/1.3 var(--font-texto); color: var(--tinta-suave); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+.item-btn.active .item-sub { color: var(--tinta); }
+.mini-tag {
+  font: 700 0.65rem/1 var(--font-texto); text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 3px 8px; border-radius: var(--radio-pastilla);
+  background: var(--rosa); color: var(--tinta); border: 1.5px solid var(--tinta); flex-shrink: 0;
+}
+
+/* Mitad derecha: Ticket de Alianza */
+.ticket-head {
+  background: var(--rosa); color: var(--tinta);
+  padding: 14px 20px; flex-shrink: 0;
+  border-bottom: var(--borde) solid var(--tinta);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.ticket-head-left small {
+  font: 700 0.7rem/1 var(--font-texto); text-transform: uppercase; letter-spacing: 0.12em; display: block; margin-bottom: 3px;
+}
+.ticket-head-left h2 {
+  font: 800 1.5rem/0.95 var(--font-display); font-stretch: 78%; letter-spacing: -0.02em;
+}
+.ticket-folio {
+  background: var(--blanco); color: var(--tinta);
+  border: 2px solid var(--tinta); box-shadow: 2px 3px 0 var(--tinta);
+  padding: 5px 11px; border-radius: var(--radio-sm);
+  font: 700 0.76rem/1.1 var(--font-texto); text-align: right;
+}
+.ticket-folio span { display: block; font-size: 0.66rem; color: var(--tinta-suave); font-weight: 600; margin-top: 2px; }
+
+/* Línea perforada del boleto */
+.perf {
+  position: relative; height: 18px; flex-shrink: 0; display: flex; align-items: center;
+  background: var(--blanco);
+}
+.perf::before, .perf::after {
+  content: ""; position: absolute; top: 50%; transform: translateY(-50%);
+  width: 22px; height: 22px; border-radius: 50%; background: var(--blanco);
+  border: var(--borde) solid var(--tinta); z-index: 2;
+}
+.perf::before { left: -14px; }
+.perf::after { right: -14px; }
+.perf-line { width: 100%; border-top: 2.5px dashed var(--tinta); margin: 0 14px; }
+
+.ticket-body {
+  flex: 1; min-height: 0; overflow-y: auto; padding: 6px 20px 14px;
+  display: flex; flex-direction: column; gap: 10px; scrollbar-width: thin;
+}
+.ticket-empty {
+  margin: auto 0; text-align: center; padding: 24px 16px;
+  border: 2px dashed var(--tinta); border-radius: var(--radio-md);
+  background: var(--blanco);
+}
+.ticket-empty strong {
+  display: block; font: 800 1.25rem/1.05 var(--font-display); font-stretch: 78%; margin-bottom: 6px;
+}
+.ticket-empty p { font-size: 0.85rem; color: var(--tinta-suave); line-height: 1.45; }
+
+.t-sec-title {
+  font: 700 0.7rem/1 var(--font-texto); text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--tinta-suave); margin-bottom: 5px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.tier-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.t-pill {
+  font: 700 0.74rem/1 var(--font-texto); text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 5px 11px; border-radius: var(--radio-pastilla);
+  color: var(--tinta); background: var(--rosa);
+  border: 2px solid var(--tinta); box-shadow: 2px 3px 0 var(--tinta);
+}
+.t-pill[data-t="experiencia"] { background: var(--violeta); }
+.t-pill[data-t="impulso"] { background: var(--neon); }
+
+.selected-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.s-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--blanco); color: var(--tinta);
+  font: 700 0.76rem/1 var(--font-texto);
+  padding: 5px 10px; border-radius: var(--radio-sm);
+  cursor: pointer; border: 2px solid var(--tinta);
+}
+.s-chip:hover { background: var(--rosa); }
+.s-chip i { font-style: normal; font-weight: 800; }
+
+.access-ul { list-style: none; padding: 0; display: grid; gap: 6px; }
+.access-ul li {
+  padding: 8px 11px; border-radius: var(--radio-sm);
+  background: var(--blanco); border: 2px solid var(--tinta);
+  font: 500 0.82rem/1.35 var(--font-texto); color: var(--tinta);
+}
+.access-ul li.vip {
+  background: var(--neon);
+  box-shadow: 3px 4px 0 var(--tinta);
+  font-weight: 700;
+}
+
+.req-mini {
+  background: var(--violeta); color: var(--tinta);
+  padding: 9px 12px; border-radius: var(--radio-sm);
+  border: 2px solid var(--tinta);
+  font: 500 0.76rem/1.35 var(--font-texto);
+}
+
+/* Talón inferior del ticket */
+.ticket-foot {
+  background: var(--tinta); color: var(--blanco);
+  border-top: var(--borde) solid var(--tinta);
+  padding: 12px 20px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.metrics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
+.m-cell {
+  background: var(--blanco); color: var(--tinta);
+  padding: 6px; border-radius: var(--radio-sm); border: 2px solid var(--tinta);
+}
+.m-cell b { display: block; font: 800 1.05rem/1 var(--font-display); font-stretch: 78%; }
+.m-cell span { font: 600 0.68rem/1.1 var(--font-texto); color: var(--tinta-suave); }
+
+.foot-actions { display: flex; gap: 10px; align-items: center; }
+.tl-boton {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center;
+  padding: 11px 16px; border-radius: var(--radio-pastilla);
+  font: 700 0.88rem/1 var(--font-texto);
+  color: var(--tinta); background: var(--neon);
+  border: 2px solid var(--blanco);
+  text-decoration: none; cursor: pointer;
+  transition: transform 0.12s; text-align: center;
+}
+.tl-boton:hover:not(.disabled):not(:disabled) { transform: translate(-2px, -2px); }
+.tl-boton.disabled, .tl-boton:disabled {
+  background: var(--tinta-suave); color: var(--blanco); border-color: var(--tinta-suave);
+  opacity: 0.6; pointer-events: none; cursor: not-allowed;
+}
+.tl-boton--sec {
+  flex: 0 0 auto; background: var(--rosa); color: var(--tinta); border-color: var(--tinta);
+}
+.btn-reset {
+  background: transparent; color: var(--tinta);
+  font: 700 0.74rem/1 var(--font-texto);
+  text-decoration: underline; border: 0; cursor: pointer; padding: 2px 4px;
+}
+.btn-reset:hover { background: var(--neon); }
+
+@media (max-width: 860px) {
+  html, body { overflow: auto; height: auto; }
+  .workspace { grid-template-columns: 1fr; height: auto; }
+  .menu-list, .ticket-body { overflow: visible; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand-link" href="../index.html" aria-label="TechnoLatinas - Volver a la presentación">
+    <svg width="148" height="40" viewBox="0 0 1242 344" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M266.967 21.627C287.665 19.355 319.493 22.458 337.451 33.332C345.701 39.008 351.928 50.632 354.010 60.139C355.471 66.812 356.905 78.919 348.288 80.707C343.831 81.632 339.965 74.748 336.410 72.428C330.691 68.695 324.542 66.163 318.050 64.057C276.295 50.635 227.031 62.652 184.748 70.418L194.426 78.557C187.684 97.650 178.446 115.923 170.983 134.744C152.874 180.497 135.896 226.853 123.833 274.616C121.415 284.194 119.340 294.512 117.830 304.266C116.711 311.495 116.938 319.195 115.580 326.404C115.294 327.926 115.009 330.399 113.601 331.145C105.009 336.365 88.524 326.137 83.893 318.586C75.528 304.943 80.408 284.890 83.846 270.186C96.888 212.156 128.995 133.813 150.889 78.533C114.443 89.091 77.180 100.935 39.049 100.542C19.390 100.890 -1.503 91.314 0.085 68.551C0.472 63.002 1.051 50.207 8.521 50.563C12.111 52.417 15.480 58.199 17.823 61.669C48.029 74.794 112.288 52.374 143.445 43.258C155.171 39.884 166.995 36.864 178.902 34.199C207.839 27.471 237.305 23.264 266.967 21.627Z" fill="#130030"/>
+      <path d="M409.913 56.775C422.504 56.132 427.576 56.432 435.918 66.645C421.527 100.918 409.590 131.875 399.027 167.461C413.568 146.723 443.123 107.458 463.721 146.263C461.689 154.502 457.266 167.453 454.635 175.833C448.195 196.340 444.283 211.421 441.361 232.506C453.407 221.074 466.347 198.114 472.918 182.550C479.817 166.224 481.012 143.257 494.614 130.964C503.781 122.678 513.347 130.842 519.161 138.584C517.869 150.099 514.981 156.107 510.883 166.922C520.306 153.708 531.869 135.603 547.780 130.882C559.832 129.712 569.761 131.550 571.654 145.148C573.525 158.596 544.019 224.858 553.582 230.583C566.584 228.135 582.713 172.265 589.109 160.549C600.320 140.587 609.025 129.701 632.152 128.057C668.905 125.445 666.701 155.669 664.012 184.490C667.858 179.148 674.821 168.629 679.773 168.113C681.276 169.002 680.805 168.337 681.554 170.587C681.710 185.576 668.773 198.597 659.658 203.892C659.127 205.452 658.560 207.000 657.964 208.533C647.552 235.149 628.277 269.003 593.937 255.525C582.757 251.137 579.163 242.488 574.807 232.129C570.246 239.256 563.073 249.472 555.949 253.482C537.952 263.613 520.732 255.329 520.373 233.843C519.950 208.626 527.419 188.111 533.134 164.493C516.068 185.147 504.676 208.218 495.383 233.664C491.323 244.778 493.031 269.964 470.483 253.794C463.892 249.068 462.719 243.616 461.915 235.949L461.215 236.944C452.559 249.199 447.717 255.193 432.673 257.774C430.868 257.832 427.089 257.327 425.326 256.864C420.291 255.505 416.013 252.177 413.455 247.630C402.371 228.259 415.660 186.038 421.526 165.444C403.737 185.212 392.144 211.764 382.916 236.521C381.017 242.321 382.543 249.714 378.741 254.812C373.507 261.828 366.836 261.085 360.434 255.813C352.374 249.175 350.748 243.964 349.578 233.724C338.641 246.349 328.215 256.956 311.971 262.732C294.988 268.772 275.650 263.916 265.158 248.808C261.346 243.319 259.778 238.251 257.670 232.027C257.483 232.280 257.293 232.532 257.102 232.782C244.943 248.810 230.615 262.845 209.883 265.921C185.784 269.496 167.657 252.412 165.135 228.967C162.446 203.973 172.653 177.473 187.592 157.699C200.078 140.544 226.916 122.381 247.116 138.263C264.491 151.924 254.214 181.839 242.472 195.780C230.092 210.480 217.676 216.080 199.291 217.946C199.296 218.238 199.306 218.530 199.318 218.822C200.121 237.666 203.940 252.616 225.892 239.081C263.443 215.929 262.376 168.733 295.027 142.173C327.590 115.685 366.816 144.787 342.381 181.516C338.874 186.785 328.611 188.748 323.749 184.241C318.275 174.839 334.204 162.308 328.858 154.005C311.703 144.962 294.937 200.772 293.082 213.372C288.731 242.922 306.116 251.558 327.413 232.332C350.841 211.182 360.475 183.389 369.090 154.113C377.063 130.194 392.531 71.112 409.913 56.775ZM612.766 182.451C609.111 194.446 598.710 228.568 611.870 237.560C614.358 239.258 621.078 233.097 622.876 230.967C629.028 222.037 633.464 213.689 637.059 203.431C626.936 199.000 625.005 197.317 617.895 188.390C617.114 187.413 613.665 183.119 612.766 182.451ZM232.117 152.372C221.552 161.283 214.780 172.307 208.926 184.703C207.472 187.781 203.548 195.429 204.834 198.679C206.899 199.432 206.322 199.192 208.825 198.396C219.271 191.441 226.392 183.874 232.431 172.690C235.182 167.597 242.319 154.359 232.117 152.372ZM638.238 147.560C631.813 161.408 630.966 172.203 641.974 184.178C645.563 175.006 650.056 152.472 638.238 147.560Z" fill="#8080FF"/>
+      <path d="M788.608 0.080C801.775 -0.607 813.498 3.008 819.326 16.023C825.817 30.533 823.747 48.305 818.501 62.852C807.161 94.276 781.114 110.778 752.319 124.011C744.774 147.087 738.968 171.762 731.593 195.086C723.679 220.085 714.978 241.074 704.007 264.638C749.593 264.673 822.177 266.665 862.974 289.673C873.349 295.894 881.668 306.626 883.981 318.595C885.322 325.506 887.525 341.626 878.330 343.478C873.710 342.456 869.178 336.247 865.973 332.675C858.782 324.662 845.092 319.004 835.108 315.296C790.398 298.693 744.679 294.729 697.567 292.091L685.519 291.585C667.998 313.248 652.216 326.604 622.743 331.709C599.539 335.729 564.384 317.786 584.391 291.002C598.361 272.302 637.199 268.802 660.380 266.481C685.910 217.067 694.760 185.812 709.901 133.201C683.530 134.141 647.905 125.773 638.172 97.362C635.644 89.983 634.908 71.197 644.243 68.367C645.164 68.892 652.141 79.413 653.299 81.188C667.851 103.457 694.362 102.203 718.500 101.755C729.633 64.938 746.868 11.251 788.608 0.080ZM641.281 291.576C633.515 291.772 585.837 294.781 600.792 310.238C615.795 314.077 632.226 302.942 641.848 292.340L641.281 291.576ZM792.815 20.386C772.877 37.511 766.923 65.605 760.425 90.210L767.969 86.251C785.918 72.983 797.140 58.546 801.480 36.119C802.784 29.405 801.237 20.560 792.815 20.386Z" fill="#130030"/>
+      <path d="M906.771 63.356C937.238 62.485 928.676 79.293 920.196 98.449C935.212 100.825 939.154 105.993 932.140 120.079C925.722 119.562 919.289 119.100 912.865 118.694C907.500 132.606 875.066 219.743 881.513 228.771C890.097 230.305 907.817 190.982 910.676 183.273C916.254 168.571 919.282 151.196 928.190 138.001C934.792 128.219 949.417 140.420 954.958 145.106C943.788 172.894 934.159 204.094 930.533 233.796C948.387 216.988 960.382 191.972 966.763 168.618C969.858 157.271 972.915 143.883 982.280 135.889C991.556 127.966 999.661 135.317 1005.500 142.826C1004.710 152.834 1001.310 160.650 997.687 169.847C1006.920 157.230 1020.520 136.026 1037.980 136.312C1046.070 136.003 1056.430 141.570 1054.780 151.124C1049.680 180.687 1037.260 203.891 1035.590 234.611C1060.650 211.461 1059.620 178.884 1080.570 153.632C1093.780 137.708 1110.990 129.527 1128.480 144.258C1129.670 142.991 1130.900 141.759 1132.160 140.563C1134.420 138.436 1136.690 137.401 1139.830 137.565C1144.500 137.809 1152.880 141.005 1155.980 144.601C1159.220 148.347 1140.210 200.213 1138.090 208.250C1135.700 217.377 1134.030 226.467 1133.350 235.896C1150.690 218.784 1164.320 187.319 1173.120 163.267C1178.910 147.437 1183.630 114.404 1213.440 129.831C1222.690 134.616 1210.510 148.474 1209.430 154.755C1206.710 170.476 1207.280 189.806 1209.640 205.815C1217.210 200.475 1232.550 178.375 1239.840 180.114C1246.660 187.119 1233.120 204.460 1228.490 210.266C1223.230 216.309 1217.220 220.932 1210.970 225.842C1210.570 238.893 1209.190 252.203 1200.790 262.808C1194.800 270.443 1185.980 275.336 1176.340 276.379C1156.520 278.535 1148.090 265.687 1146.470 248.020C1136.110 257.887 1118.440 266.992 1108.810 250.047C1105.930 244.959 1105.500 239.932 1104.660 234.232C1095.860 247.028 1089.440 256.122 1073.930 259.772C1061.610 256.613 1058.590 248.928 1054.550 238.019C1046.770 249.536 1036.850 262.493 1020.970 258.847C1012.730 256.955 1008.110 251.072 1006.770 242.890C1002.610 217.385 1012.710 192.670 1018.520 168.452C1002.760 186.395 990.872 213.999 982.391 236.239C980.188 242.144 980.828 249.963 977.372 255.289C973.371 261.453 966.401 260.894 961.067 256.656C954.266 251.253 951.702 247.606 950.236 238.907C931.086 259.084 910.543 270.256 901.945 234.021C901.591 234.526 901.245 235.027 900.884 235.526C892.654 247.093 875.235 265.316 858.598 254.214C851.790 249.676 850.722 240.248 849.616 232.626C842.351 243.420 825.198 264.518 809.282 255.198C801.885 250.866 799.696 240.430 797.899 232.558C797.272 233.663 796.624 234.756 795.947 235.835C788.040 248.543 774.763 264.263 757.661 254.257C752.467 251.219 748.245 242.623 747.531 236.598C744.443 209.403 754.272 180.176 769.738 157.852C783.811 137.538 800.832 125.246 823.459 141.067C835.116 130.243 842.778 136.270 853.344 144.380C842.594 179.302 832.596 195.484 827.556 232.826C855.850 205.812 866.379 157.026 879.715 119.856C873.577 119.076 861.258 116.798 859.770 109.666C861.391 98.995 879.221 99.178 887.304 98.814C892.233 85.363 895.321 71.925 906.771 63.356ZM1178.642 235.485C1166.756 241.450 1159.518 242.912 1165.314 256.865C1172.832 253.997 1184.886 244.243 1178.642 235.485ZM1114.670 155.904C1098.300 169.354 1092.520 184.669 1088.050 204.963C1086.810 210.551 1083.850 224.044 1086.380 229.223L1087.420 229.877C1088.700 229.291 1088.910 229.284 1089.720 228.185C1096.140 217.908 1127.980 167.715 1117.820 156.867C1116.660 156.313 1115.920 155.795 1114.670 155.904ZM809.128 153.047C791.901 166.793 786.566 182.513 781.379 203.311C779.905 209.214 777.114 221.142 779.493 226.778L780.576 227.615C781.453 227.375 782.057 227.305 782.794 226.820C789.455 216.992 824.424 162.610 811.618 153.310L809.128 153.047ZM1177.290 189.845C1175.070 194.103 1159.590 224.397 1160.300 226.830L1161.140 226.922C1167.100 224.016 1173.430 220.774 1179.500 218.205C1179.430 211.893 1179.770 194.920 1177.290 189.845Z" fill="#8080FF"/>
+      <path d="M948.276 93.541C951.024 93.124 953.831 93.168 956.572 93.671C960.389 94.402 963.734 96.651 965.856 99.902C972.325 109.818 966.954 127.908 957.287 134.230C955.496 134.141 952.940 133.772 951.157 133.446C946.353 132.523 942.123 129.693 939.441 125.602C931.933 114.312 937.813 100.515 948.276 93.541Z" fill="#8080FF"/>
+    </svg>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html">Volver a presentación</a>
+    <a href="../index.html#s6">Paquetes</a>
+    <a class="on" href="./" aria-current="page">Cotizador</a>
+  </div>
+</header>
+
+<main class="workspace">
+  <!-- MITAD IZQUIERDA: Ventana con menú lateral -->
+  <section class="tl-ventana" aria-label="Menú de opciones de patrocinio">
+    <div class="tl-ventana__barra">
+      <span>menu-alianzas.cfg :)</span>
+      <span class="tl-ventana__ctl" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+    <div class="menu-inner">
+      <div class="menu-top">
+        <h1>Elige tu <span class="tl-palabra tl-acento">aportación.</span></h1>
+        <p>Selecciona opciones del menú para armar tu ticket de alianza a la derecha.</p>
+      </div>
+
+      <div class="cat-tabs">
+        <button type="button" class="cat-tab on" data-filter="all">Todas (9)</button>
+        <button type="button" class="cat-tab" data-filter="sedes">1. Sedes</button>
+        <button type="button" class="cat-tab" data-filter="experiencia">2. Experiencia</button>
+        <button type="button" class="cat-tab" data-filter="impulso">3. Impulso</button>
+      </div>
+
+      <div class="menu-list">
+        <div class="cat-block" data-cat="sedes">
+          <div class="cat-label">1. Aliado de sedes <span>En especie · Sede y equipo</span></div>
+          <div class="items-grid">
+            <button type="button" class="item-btn" data-id="sede-instalaciones">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Instalaciones y apoyo logístico</span><span class="mini-tag">Sede Día 1</span></div>
+                <div class="item-sub">Espacio para 100 personas, registro, proyector, WiFi, área networking y baños.</div>
+              </div>
+            </button>
+            <button type="button" class="item-btn" data-id="sede-mobiliario">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Préstamo de mobiliario</span><span class="mini-tag">Espacios</span></div>
+                <div class="item-sub">Sillas y mesas tipo conferencia para las 100 asistentes.</div>
+              </div>
+            </button>
+            <button type="button" class="item-btn" data-id="sede-audio">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Préstamo de equipo de audio</span><span class="mini-tag">Escenario</span></div>
+                <div class="item-sub">Sistema de sonido y micrófonos para charlas y paneles.</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="cat-block" data-cat="experiencia">
+          <div class="cat-label">2. Aliado de experiencia <span>En especie · Elige una o varias</span></div>
+          <div class="items-grid">
+            <button type="button" class="item-btn" data-id="exp-coffee">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Coffee break</span><span class="mini-tag">Networking</span></div>
+                <div class="item-sub">Café, té e insumos en las pausas de conexión para 100 asistentes.</div>
+              </div>
+            </button>
+            <button type="button" class="item-btn" data-id="exp-lunch">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Lunch boxes</span><span class="mini-tag">Comida</span></div>
+                <div class="item-sub">100 comidas individuales durante la jornada principal.</div>
+              </div>
+            </button>
+            <button type="button" class="item-btn" data-id="exp-snacks">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Snacks</span><span class="mini-tag">Talleres</span></div>
+                <div class="item-sub">Bocadillos dulces o salados para las mesas de trabajo.</div>
+              </div>
+            </button>
+            <button type="button" class="item-btn" data-id="exp-swag">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Swag o kits de bienvenida</span><span class="mini-tag">Registro</span></div>
+                <div class="item-sub">Artículos promocionales entregados en mano a las 100 asistentes.</div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="cat-block" data-cat="impulso">
+          <div class="cat-label">3. Aliado de impulso <span>Aportación monetaria</span></div>
+          <div class="items-grid">
+            <button type="button" class="item-btn" data-id="imp-operacion">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Apoyo económico operativo</span><span class="mini-tag">Monetario</span></div>
+                <div class="item-sub">Aportación directa para la producción y logística de la Cumbre.</div>
+              </div>
+            </button>
+            <button type="button" class="item-btn" data-id="imp-donacion">
+              <span class="box">✓</span>
+              <div class="item-info">
+                <div class="item-name"><span>Donativo deducible 501(c)(3)</span><span class="mini-tag">Recibo EE.UU.</span></div>
+                <div class="item-sub">Donación internacional a cuenta en EE.UU. con recibo deducible fiscal.</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MITAD DERECHA: Ticket de Acceso -->
+  <aside class="tl-ventana" aria-live="polite">
+    <div class="ticket-head">
+      <div class="ticket-head-left">
+        <small>Cumbre de Comunidades · Marzo 2027</small>
+        <h2>Ticket de alianza.</h2>
+      </div>
+      <div class="ticket-folio">
+        <b id="folio-code">TL-000</b>
+        <span id="folio-count">0 opciones</span>
+      </div>
+    </div>
+
+    <div class="perf" aria-hidden="true"><div class="perf-line"></div></div>
+
+    <div class="ticket-body">
+      <div id="ticket-empty" class="ticket-empty">
+        <strong>Tu ticket está en blanco.</strong>
+        <p>Marca una o varias opciones en el menú izquierdo para ver al instante qué categorías desbloqueas y a qué beneficios accede tu organización.</p>
+      </div>
+
+      <div id="ticket-content" style="display:none;flex-direction:column;gap:10px">
+        <div>
+          <div class="t-sec-title">
+            <span>Categoría(s) desbloqueadas</span>
+            <button type="button" id="reset-btn" class="btn-reset">Limpiar selección</button>
+          </div>
+          <div id="tier-pills" class="tier-pills"></div>
+        </div>
+
+        <div>
+          <div class="t-sec-title"><span>Tu aportación seleccionada</span></div>
+          <div id="selected-chips" class="selected-chips"></div>
+        </div>
+
+        <div>
+          <div class="t-sec-title"><span>A qué accedes con este ticket</span></div>
+          <ul id="access-list" class="access-ul"></ul>
+        </div>
+
+        <div id="req-summary" class="req-mini"></div>
+      </div>
+    </div>
+
+    <div class="ticket-foot">
+      <div class="metrics-row">
+        <div class="m-cell"><b>+30,000</b><span>impactos digitales</span></div>
+        <div class="m-cell"><b>100</b><span>asistentes STEM</span></div>
+        <div class="m-cell"><b>2</b><span>accesos a tu equipo</span></div>
+      </div>
+      <div class="foot-actions">
+        <a id="mail-btn" class="tl-boton disabled" href="mailto:partners@technolatinas.org">Solicitar este ticket por correo</a>
+        <button type="button" id="copy-btn" class="tl-boton tl-boton--sec" disabled>Copiar</button>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<script>
+(function(){
+  var catalog = {
+    'sede-instalaciones': {
+      cat: 'sedes', short: 'Instalaciones',
+      benefit: 'Mención especial como Sede Oficial del Día 1 de la Cumbre.',
+      req: 'Espacio para 100 personas, registro, proyector/pantalla, WiFi, zona networking y baños.'
+    },
+    'sede-mobiliario': {
+      cat: 'sedes', short: 'Mobiliario',
+      benefit: 'Reconocimiento en áreas de conferencias y mesas de trabajo.',
+      req: 'Sillas y mesas tipo conferencia para 100 asistentes.'
+    },
+    'sede-audio': {
+      cat: 'sedes', short: 'Equipo de audio',
+      benefit: 'Reconocimiento en escenario principal durante charlas y paneles.',
+      req: 'Sistema de audio y micrófonos.'
+    },
+    'exp-coffee': {
+      cat: 'experiencia', short: 'Coffee break',
+      benefit: 'Presencia de marca destacada en la estación de café durante el networking.',
+      req: 'Insumos de coffee break para 100 participantes.'
+    },
+    'exp-lunch': {
+      cat: 'experiencia', short: 'Lunch boxes',
+      benefit: 'Visibilidad de marca en el horario de comida y convivencia.',
+      req: '100 lunch boxes individuales.'
+    },
+    'exp-snacks': {
+      cat: 'experiencia', short: 'Snacks',
+      benefit: 'Visibilidad de marca en mesas de snacks durante los talleres técnicos.',
+      req: 'Snacks para 100 asistentes.'
+    },
+    'exp-swag': {
+      cat: 'experiencia', short: 'Swag / Kits',
+      benefit: 'Entrega directa de tu material promocional a las 100 asistentes en el registro.',
+      req: '100 piezas o kits de bienvenida.'
+    },
+    'imp-operacion': {
+      cat: 'impulso', short: 'Apoyo económico',
+      benefit: 'Reconocimiento como Aliado de Impulso que hace posible la Cumbre 2027.',
+      req: 'Aportación monetaria directa para la operación.'
+    },
+    'imp-donacion': {
+      cat: 'impulso', short: 'Donativo 501(c)(3)',
+      benefit: 'Recibo fiscal deducible de impuestos en EE.UU. (organización 501(c)(3)).',
+      req: 'Donación en technolatinas.org/donar o cuenta bancaria en EE.UU.'
+    }
+  };
+
+  var baseBenefits = [
+    '2 accesos incluidos para que tu equipo participe y conecte con la comunidad.',
+    'Presencia de marca en redes sociales antes, durante y después (+30,000 impactos).',
+    'Logo en el material digital oficial y menciones en vivo durante la Cumbre.',
+    'Visibilidad ante mujeres líderes en software, data, diseño UX y comunidades.'
+  ];
+
+  var selected = {};
+  var itemBtns = [].slice.call(document.querySelectorAll('.item-btn'));
+  var filterTabs = [].slice.call(document.querySelectorAll('.cat-tab'));
+  var catBlocks = [].slice.call(document.querySelectorAll('.cat-block'));
+
+  var emptyEl = document.getElementById('ticket-empty');
+  var contentEl = document.getElementById('ticket-content');
+  var folioCode = document.getElementById('folio-code');
+  var folioCount = document.getElementById('folio-count');
+  var tierPills = document.getElementById('tier-pills');
+  var selectedChips = document.getElementById('selected-chips');
+  var accessList = document.getElementById('access-list');
+  var reqSummary = document.getElementById('req-summary');
+  var mailBtn = document.getElementById('mail-btn');
+  var copyBtn = document.getElementById('copy-btn');
+  var resetBtn = document.getElementById('reset-btn');
+
+  filterTabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var f = tab.dataset.filter;
+      filterTabs.forEach(function(t){ t.classList.toggle('on', t === tab); });
+      catBlocks.forEach(function(b){
+        b.style.display = (f === 'all' || b.dataset.cat === f) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  function render(){
+    var ids = Object.keys(selected).filter(function(k){ return selected[k]; });
+
+    itemBtns.forEach(function(btn){
+      btn.classList.toggle('active', !!selected[btn.dataset.id]);
+    });
+
+    folioCount.textContent = ids.length + (ids.length === 1 ? ' opción' : ' opciones');
+    folioCode.textContent = ids.length ? 'TL-2027-' + ids.length : 'TL-000';
+
+    if(!ids.length){
+      emptyEl.style.display = 'block';
+      contentEl.style.display = 'none';
+      mailBtn.classList.add('disabled');
+      copyBtn.disabled = true;
+      return;
+    }
+
+    emptyEl.style.display = 'none';
+    contentEl.style.display = 'flex';
+    mailBtn.classList.remove('disabled');
+    copyBtn.disabled = false;
+
+    var cats = { sedes: false, experiencia: false, impulso: false };
+    ids.forEach(function(id){ cats[catalog[id].cat] = true; });
+
+    var pillsHtml = '';
+    if(cats.sedes) pillsHtml += '<span class="t-pill" data-t="sedes">Aliado de sedes</span>';
+    if(cats.experiencia) pillsHtml += '<span class="t-pill" data-t="experiencia">Aliado de experiencia</span>';
+    if(cats.impulso) pillsHtml += '<span class="t-pill" data-t="impulso">Aliado de impulso</span>';
+    tierPills.innerHTML = pillsHtml;
+
+    selectedChips.innerHTML = ids.map(function(id){
+      return '<span class="s-chip" data-rm="' + id + '" title="Quitar">' + catalog[id].short + ' <i>×</i></span>';
+    }).join('');
+    [].slice.call(selectedChips.querySelectorAll('[data-rm]')).forEach(function(chip){
+      chip.addEventListener('click', function(){
+        selected[chip.dataset.rm] = false;
+        render();
+      });
+    });
+
+    var li = '';
+    if(selected['imp-donacion']){
+      li += '<li class="vip"><strong>Beneficio fiscal:</strong> Recibo deducible 501(c)(3) en EE.UU. para donativos internacionales.</li>';
+    }
+    ids.forEach(function(id){
+      li += '<li>' + catalog[id].benefit + '</li>';
+    });
+    baseBenefits.forEach(function(text){
+      li += '<li>' + text + '</li>';
+    });
+    accessList.innerHTML = li;
+
+    reqSummary.innerHTML = '<strong>Lo que aporta tu organización:</strong> ' + ids.map(function(id){ return catalog[id].req; }).join(' · ');
+
+    var activeTiers = [];
+    if(cats.sedes) activeTiers.push('Aliado de sedes');
+    if(cats.experiencia) activeTiers.push('Aliado de experiencia');
+    if(cats.impulso) activeTiers.push('Aliado de impulso');
+
+    var subject = encodeURIComponent('Ticket de Alianza Cumbre 2027 (' + activeTiers.join(' + ') + ')');
+    var body = encodeURIComponent(
+      '¡Hola equipo de TechnoLatinas!\n\n' +
+      'Armamos nuestro ticket en el cotizador de la Cumbre de Comunidades 2027 con las siguientes opciones:\n\n' +
+      ids.map(function(id){ return '• ' + catalog[id].short + ': ' + catalog[id].req; }).join('\n') + '\n\n' +
+      'Categoría(s): ' + activeTiers.join(', ') + '\n\n' +
+      'Nos encantaría coordinar los siguientes pasos.\n'
+    );
+    mailBtn.href = 'mailto:partners@technolatinas.org?subject=' + subject + '&body=' + body;
+  }
+
+  itemBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.dataset.id;
+      selected[id] = !selected[id];
+      render();
+    });
+  });
+
+  resetBtn.addEventListener('click', function(){
+    selected = {};
+    render();
+  });
+
+  copyBtn.addEventListener('click', function(){
+    var ids = Object.keys(selected).filter(function(k){ return selected[k]; });
+    if(!ids.length) return;
+    var cats = { sedes: false, experiencia: false, impulso: false };
+    ids.forEach(function(id){ cats[catalog[id].cat] = true; });
+    var lines = ['TICKET DE ALIANZA · CUMBRE DE COMUNIDADES 2027 (TechnoLatinas)', ''];
+    lines.push('Aportación seleccionada:');
+    ids.forEach(function(id){ lines.push('• ' + catalog[id].short + ' (' + catalog[id].req + ')'); });
+    lines.push('');
+    lines.push('A qué accedes:');
+    if(selected['imp-donacion']) lines.push('• [Fiscal] Recibo deducible 501(c)(3) en EE.UU.');
+    ids.forEach(function(id){ lines.push('• ' + catalog[id].benefit); });
+    baseBenefits.forEach(function(text){ lines.push('• ' + text); });
+    lines.push('');
+    lines.push('Contacto: partners@technolatinas.org');
+
+    navigator.clipboard.writeText(lines.join('\n')).then(function(){
+      copyBtn.textContent = '¡Copiado!';
+      setTimeout(function(){ copyBtn.textContent = 'Copiar'; }, 1800);
+    });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
+
